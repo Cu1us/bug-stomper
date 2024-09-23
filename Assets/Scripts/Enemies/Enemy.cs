@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool flipped;
     SpriteRenderer sr;
     public Action onDie;
-    //[SerializeField] Lane currentLane;
 
     void Start()
     {
