@@ -2,27 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Events;
+using System;
 
 public class Lane : MonoBehaviour
 {
     public Wave[] Waves;
 
     int waveNumber = 0;
-    bool waveActive = false;
+    public bool waveActive { get; protected set; } = false;
     int currentWaveStep = 0;
 
     Wave currentWave { get { return (waveNumber >= 0 && waveNumber < Waves.Length) ? Waves[waveNumber] : null; } } // Returns the current wave object, or null if one isn't defined for this lane
-    public UnityAction onFinishSpawning;
+    public Action onFinishSpawning;
 
-    [ContextMenu("Start wave 0 on this lane")]
-    void StartWave1Test()
-    {
-        if (!Application.isPlaying) return;
-        StartWave(0);
-    }
     public void StartWave(int wave)
     {
+        if (wave >= Waves.Length) return;
         waveNumber = wave;
         if (waveActive)
         {
@@ -39,6 +34,11 @@ public class Lane : MonoBehaviour
     }
     void TickWave() // Runs the current wave's next action
     {
+        if (Waves.Length < waveNumber || currentWave.Actions.Length == 0)
+        {
+            StopWave();
+            return;
+        }
         DoWaveAction(currentWave.Actions[currentWaveStep]);
         currentWaveStep++;
         if (currentWaveStep >= currentWave.Actions.Length)
