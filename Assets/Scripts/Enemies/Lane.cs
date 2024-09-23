@@ -15,9 +15,9 @@ public class Lane : MonoBehaviour
     Wave currentWave { get { return (waveNumber >= 0 && waveNumber < Waves.Length) ? Waves[waveNumber] : null; } } // Returns the current wave object, or null if one isn't defined for this lane
     public Action onFinishSpawning;
 
-    public void StartWave(int wave)
+    public bool StartWave(int wave) // returns false if there are no more waves
     {
-        if (wave >= Waves.Length) return;
+        if (wave >= Waves.Length) return false;
         waveNumber = wave;
         if (waveActive)
         {
@@ -25,6 +25,7 @@ public class Lane : MonoBehaviour
         }
         currentWaveStep = 0;
         InvokeRepeating(nameof(TickWave), 0, currentWave.timeBetweenActions);
+        return true;
     }
     public void StopWave()
     {

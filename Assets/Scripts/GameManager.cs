@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent onWaveStart;
     public UnityEvent onWaveEnd;
+    public UnityEvent onGameFinish;
 
     // Local vars
     int currentWave = 0;
@@ -58,9 +59,17 @@ public class GameManager : MonoBehaviour
     void StartWave(int wave)
     {
         onWaveStart?.Invoke();
+        bool noMoreWaves = true;
         foreach (Lane lane in Lanes)
         {
-            lane.StartWave(wave);
+            if (lane.StartWave(wave))
+            {
+                noMoreWaves = false;
+            }
+        }
+        if (noMoreWaves)
+        {
+            onGameFinish?.Invoke();
         }
     }
     void StartNextWave()
