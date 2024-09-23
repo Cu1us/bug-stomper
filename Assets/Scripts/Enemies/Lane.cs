@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Lane : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Wave[] Waves;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public enum WaveAction
+{
+    WAIT,
+    SHELL,
+    CATERPILLAR
+}
+
+[System.Serializable]
+public class Wave
+{
+    [SerializeField]
+    public float timeBetweenActions = 1f;
+    [SerializeField]
+    public WaveAction[] Actions;
 }
