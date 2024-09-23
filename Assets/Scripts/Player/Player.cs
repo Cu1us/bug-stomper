@@ -15,10 +15,14 @@ public class Player : MonoBehaviour
     float stompTimer;
     [SerializeField] Projectile projectile;
     [SerializeField] StompWave stompWave;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] Transform throwTransform;
 
     void Start()
     {
         Application.targetFrameRate = 60;
+        float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
+        transform.position = new Vector3(transform.position.x, y);
     }
 
     void Update()
@@ -26,8 +30,8 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Vertical"))
         {
             laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
-            //Debug.Log(currentLane);
-            transform.position = new Vector3(transform.position.x, (laneNumber-1) * laneYSize);
+            float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
+            transform.position = new Vector3(transform.position.x, y);
         }
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && fireTimer <= 0)
         {
-            Vector3 spawnPos = transform.position;
+            Vector3 spawnPos = throwTransform.position;
             Instantiate(projectile, spawnPos, Quaternion.identity);
             fireTimer = fireRate;
             Debug.Log("Fire!!");

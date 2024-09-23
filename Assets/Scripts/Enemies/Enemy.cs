@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
     {
         flipped = !flipped;
         sr.flipY = ! sr.flipY;
-
     }
 
     public void Damage(int damageIn)

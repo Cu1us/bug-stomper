@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57d45c5027b01ba45a9027c900e1b080
+guid: 2e38abc99aaff484983850fd0623c7fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,64 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gnomecreep_IdleAnimation_0
+      name: Shellmet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 33
-        width: 16
-        height: 32
+        x: 1
+        y: 0
+        width: 14
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 933ad122e91eed7468db4fd71b1ab30e
-      internalID: -1153671852
+      spriteID: 49885d5a1ce64c84dbe4e94b381368cd
+      internalID: -5349873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gnomecreep_IdleAnimation_1
+      name: Shellmet_1
       rect:
         serializedVersion: 2
         x: 17
-        y: 33
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40665e7f443fced468fb74bf1912c5c2
-      internalID: 233996079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gnomecreep_IdleAnimation_2
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 14
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73253bf0b42810c4bba5b422c62ca2a2
-      internalID: 339151507
+      spriteID: 768269aef5e76e5418d3c694e7df7bfc
+      internalID: -92192017
       vertices: []
       indices: 
       edges: []
@@ -183,9 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gnomecreep_IdleAnimation_0: -1153671852
-      Gnomecreep_IdleAnimation_1: 233996079
-      Gnomecreep_IdleAnimation_2: 339151507
+      Shellmet_0: -5349873
+      Shellmet_1: -92192017
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
