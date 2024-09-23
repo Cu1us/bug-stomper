@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int currentLane = 0;
+    [SerializeField] int laneNumber = 0;
+    Lane currentLane;
     [SerializeField] float laneYSize = 5;
     [SerializeField] float fireRate = .5f;
-     float fireTimer;
+    float fireTimer;
     [SerializeField] float stompRate = 5f;
-     float stompTimer;
+    float stompTimer;
     [SerializeField] Projectile projectile;
     [SerializeField] StompWave stompWave;
 
@@ -24,9 +25,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Vertical"))
         {
-            currentLane = Mathf.Clamp(currentLane + (int)Input.GetAxisRaw("Vertical"), 0, 2);
+            laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
             //Debug.Log(currentLane);
-            transform.position = new Vector3(transform.position.x, (currentLane-1) * laneYSize);
+            transform.position = new Vector3(transform.position.x, (laneNumber-1) * laneYSize);
         }
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
