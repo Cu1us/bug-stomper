@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     // Local vars
     int currentWave = 0;
+    bool allWavesFinished = false;
 
     [ContextMenu("Start game")]
     void StartGame()
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
         if (noMoreWaves)
         {
-            onGameFinish?.Invoke();
+            allWavesFinished = true;
         }
     }
     void StartNextWave()
