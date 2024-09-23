@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] int currentLane = 0;
     [SerializeField] float laneYSize = 5;
+    [SerializeField] float fireRate = .5f;
+     float fireTimer;
+    [SerializeField] float stompRate = 5f;
+     float stompTimer;
     [SerializeField] Projectile projectile;
     [SerializeField] StompWave stompWave;
 
@@ -24,18 +28,22 @@ public class Player : MonoBehaviour
             //Debug.Log(currentLane);
             transform.position = new Vector3(transform.position.x, (currentLane-1) * laneYSize);
         }
+        stompTimer -= Time.deltaTime;
+        fireTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && stompTimer <= 0)
         {
             Vector3 spawnPos = transform.position;
             Instantiate(stompWave, spawnPos, Quaternion.identity);
+            stompTimer = stompRate;
             Debug.Log("STOMP!");
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && fireTimer <= 0)
         {
             Vector3 spawnPos = transform.position;
             Instantiate(projectile, spawnPos, Quaternion.identity);
+            fireTimer = fireRate;
             Debug.Log("Fire!!");
         }
     }
