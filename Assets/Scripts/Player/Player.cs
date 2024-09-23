@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform throwTransform;
     [SerializeField] Transform stompTransform;
     Animator animator;
-    float offY = -0.1f;
+    [SerializeField] float offY = -0.3f;
 
     void Start()
     {
