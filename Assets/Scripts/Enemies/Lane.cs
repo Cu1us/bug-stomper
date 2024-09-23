@@ -55,6 +55,7 @@ public class Lane : MonoBehaviour
     void SpawnEnemy(Enemy prefab)
     {
         Enemy enemy = Instantiate(prefab, transform);
+        enemy.transform.position = transform.position;
     }
 }
 
