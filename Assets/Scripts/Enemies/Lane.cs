@@ -35,7 +35,7 @@ public class Lane : MonoBehaviour
     {
         CancelInvoke(nameof(TickWave));
         waveActive = false;
-        onFinishSpawning.Invoke();
+        onFinishSpawning?.Invoke();
     }
     void TickWave() // Runs the current wave's next action
     {
