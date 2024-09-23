@@ -17,6 +17,7 @@ public class Lane : MonoBehaviour
 
     public void StartWave(int wave)
     {
+        if (wave >= Waves.Length) return;
         waveNumber = wave;
         if (waveActive)
         {
@@ -33,6 +34,11 @@ public class Lane : MonoBehaviour
     }
     void TickWave() // Runs the current wave's next action
     {
+        if (Waves.Length < waveNumber || currentWave.Actions.Length == 0)
+        {
+            StopWave();
+            return;
+        }
         DoWaveAction(currentWave.Actions[currentWaveStep]);
         currentWaveStep++;
         if (currentWaveStep >= currentWave.Actions.Length)
