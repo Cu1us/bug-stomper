@@ -3,47 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField][Range(0.1f,10)] float velocity = 2;
-    [SerializeField][Range(1,10)] int health = 2;
-    [SerializeField] bool flipped;
-    SpriteRenderer sr;
-    public Action onDie;
+    public const float hurtBlinkDuration = 0.25f;
+    [SerializeField] protected float velocity = 2;
+    [SerializeField] protected int health = 2;
+    [SerializeField] protected bool flipped;
+    protected SpriteRenderer sr;
+    protected Animator animator;
 
-    void Start()
+    void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        if (!flipped) transform.position += new Vector3(-(velocity*Time.deltaTime),0);
-        
-    }
+    public abstract Projectile.ReturnBehavior HitByProjectile(int damage);
+    public abstract void HitByShockwave();
 
-    public void Flip()
+    public virtual void Flip()
     {
-        flipped = !flipped;
-        sr.flipY = ! sr.flipY;
+        sr.flipY = flipped = !flipped;
     }
-
-    public void Damage(int damageIn)
+    public virtual void Damage(int damage)
     {
-        if (flipped)
+        health -= damage;
+        if (health > 0)
         {
-            health -= damageIn;
+            BlinkHurt();
         }
-
-        if (health <= 0)
+        else
         {
-            Die();
+            Kill();
         }
     }
-
-    void Die()
+    public virtual void BlinkHurt()
     {
-        onDie?.Invoke();
+        sr.color = Color.red;
+        CancelInvoke(nameof(UnblinkHurt));
+        Invoke(nameof(UnblinkHurt), hurtBlinkDuration);
+    }
+    public virtual void UnblinkHurt()
+    {
+        sr.color = Color.white;
+    }
+    public void Kill()
+    {
         Destroy(gameObject);
     }
 }

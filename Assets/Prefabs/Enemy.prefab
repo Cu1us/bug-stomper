@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6543485436554693711}
   - component: {fileID: 2957538097133576990}
-  - component: {fileID: 7688408622542402885}
   - component: {fileID: 3531216492679081885}
   - component: {fileID: 988158331710166299}
+  - component: {fileID: 5734865572899229518}
+  - component: {fileID: 2043675940366498402}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -87,21 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7688408622542402885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5431794908492703877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551f59d0d7cdb7aba857f1b45aab2372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: 2
-  health: 2
-  flipped: 0
 --- !u!61 &3531216492679081885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +160,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &5734865572899229518
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431794908492703877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2043675940366498402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431794908492703877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cebefb7564d4d1f9ab3893937e5ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 2
+  health: 2
+  flipped: 0
+  maxHealth: 0
+  startingVelocity: 0
