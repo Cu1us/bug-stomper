@@ -41,7 +41,7 @@ public class Lane : MonoBehaviour
     {
         DoWaveAction(currentWave.Actions[currentWaveStep]);
         currentWaveStep++;
-        if (currentWaveStep > currentWave.Actions.Length)
+        if (currentWaveStep >= currentWave.Actions.Length)
         {
             StopWave();
         }
