@@ -18,9 +18,12 @@ public class Player : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform throwTransform;
     [SerializeField] Transform stompTransform;
+    Animator animator;
+    float offY = -0.1f;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         Application.targetFrameRate = 60;
         SetLane();
     }
@@ -46,6 +49,8 @@ public class Player : MonoBehaviour
             Vector3 spawnPos = throwTransform.position;
             Instantiate(projectile, spawnPos, Quaternion.identity);
             fireTimer = fireRate;
+            // animator.SetTrigger("throw");
+            animator.Play("GnomeThrow");
         }
     }
 
@@ -53,6 +58,6 @@ public class Player : MonoBehaviour
     {
         laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
         float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
-        transform.position = new Vector3(transform.position.x, y);
+        transform.position = new Vector3(transform.position.x, y+offY);
     }
 }
