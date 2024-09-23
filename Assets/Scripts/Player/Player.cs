@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+
 public class Player : MonoBehaviour
 {
     [SerializeField] int laneNumber = 0;
@@ -28,8 +31,13 @@ public class Player : MonoBehaviour
         SetLane();
     }
 
+    // TODO
+    // Add states to prevent movement and actions when in other states than idle.
+
     void Update()
     {
+        if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
+
         if (Input.GetButtonDown("Vertical"))
         {
             SetLane();
@@ -39,25 +47,30 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && stompTimer <= 0)
         {
-            Vector3 spawnPos = stompTransform.position;
-            Instantiate(stompWave, spawnPos, Quaternion.identity);
             stompTimer = stompRate;
+            animator.Play("GnomeStomp");
+            Invoke(nameof(Stomp), stompRate);
         }
 
         if (Input.GetButtonDown("Fire1") && fireTimer <= 0)
         {
+            fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
             Instantiate(projectile, spawnPos, Quaternion.identity);
-            fireTimer = fireRate;
-            // animator.SetTrigger("throw");
             animator.Play("GnomeThrow");
         }
+    }
+
+    void Stomp()
+    {
+        Vector3 spawnPos = stompTransform.position;
+        Instantiate(stompWave, spawnPos, Quaternion.identity);
     }
 
     private void SetLane()
     {
         laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
         float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
-        transform.position = new Vector3(transform.position.x, y+offY);
+        transform.position = new Vector3(transform.position.x, y + offY);
     }
 }

@@ -51,7 +51,7 @@ MonoBehaviour:
   laneNumber: 1
   laneYSize: 3.5
   fireRate: 0.25
-  stompRate: 2
+  stompRate: 0.5
   projectile: {fileID: 5712345382162022589, guid: 794717a72711b1b43865fcfd12e495cd, type: 3}
   stompWave: {fileID: 161228094625569937, guid: 78d80bfaa642d024ba8660a9e5f08f49, type: 3}
   gameManager: {fileID: 0}
@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 8520049572725672835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -0, z: 0}
+  m_LocalPosition: {x: 0.91, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

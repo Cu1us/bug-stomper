@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField][Range(0.1f, 10)] float baseSpeed = 2;
     [SerializeField][Range(-200f, 50f)] float rotation = 2;
     [SerializeField][Range(1, 10)] int damage = 1;
+    SpriteRenderer sr;
 
     Vector2 velocity;
     bool hasBeenDeflected = false;
@@ -16,6 +17,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         velocity = Vector2.right * baseSpeed;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class Projectile : MonoBehaviour
         }
         transform.position += (Vector3)velocity * Time.deltaTime;
         transform.Rotate(0, 0, rotation * Time.deltaTime);
+        if (!sr.isVisible) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     bool allWavesFinished = false;
 
     [ContextMenu("Start game")]
-    void StartGame()
+    public void StartGame()
     {
         currentWave = 0;
         StartNextWave();
