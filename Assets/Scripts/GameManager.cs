@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -25,10 +26,13 @@ public class GameManager : MonoBehaviour
     // Local vars
     int currentWave = 0;
     bool allWavesFinished = false;
+    bool gameActive = false;
 
     [ContextMenu("Start game")]
     public void StartGame()
     {
+        if (gameActive) return;
+        gameActive = true;
         currentWave = 0;
         StartNextWave();
     }
@@ -74,13 +78,26 @@ public class GameManager : MonoBehaviour
         if (noMoreWaves)
         {
             allWavesFinished = true;
-            //SceneManager.LoadScene(0);
         }
     }
     void StartNextWave()
     {
         StartWave(currentWave);
         currentWave++;
+    }
+    void Update()
+    {
+        if (allWavesFinished)
+        {
+            foreach (Lane lane in Lanes)
+            {
+                if (lane.transform.childCount == 0)
+                {
+                    gameActive = allWavesFinished = false;
+                    onGameFinish?.Invoke();
+                }
+            }
+        }
     }
     public static Enemy GetEnemyPrefab(WaveAction type)
     {
