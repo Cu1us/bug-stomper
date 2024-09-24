@@ -12,7 +12,7 @@ public class Lane : MonoBehaviour
     public bool waveActive { get; protected set; } = false;
     int currentWaveStep = 0;
 
-    Wave currentWave { get { return (waveNumber >= 0 && waveNumber < Waves.Length) ? Waves[waveNumber] : null; } } // Returns the current wave object, or null if one isn't defined for this lane
+    public Wave currentWave { get { return (waveNumber >= 0 && waveNumber < Waves.Length) ? Waves[waveNumber] : null; } } // Returns the current wave object, or null if one isn't defined for this lane
     public Action onFinishSpawning;
 
     public bool StartWave(int wave) // returns false if there are no more waves
@@ -56,6 +56,7 @@ public class Lane : MonoBehaviour
     void SpawnEnemy(Enemy prefab)
     {
         Enemy enemy = Instantiate(prefab, transform);
+        enemy.parentLane = this;
         enemy.transform.position = transform.position;
     }
 }
@@ -72,6 +73,8 @@ public class Wave
 {
     [SerializeField]
     public float timeBetweenActions = 1f;
+    [SerializeField]
+    public float enemyMoveSpeedMultiplier = 1f;
     [SerializeField]
     public WaveAction[] Actions;
 }

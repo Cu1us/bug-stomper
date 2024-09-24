@@ -19,9 +19,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Events")]
 
-    public UnityEvent onWaveStart;
-    public UnityEvent onWaveEnd;
+    public UnityEvent<int> onWaveStart;
+    public UnityEvent<int> onWaveEnd;
     public UnityEvent onGameFinish;
+    public UnityEvent onGameLose;
+    [Header("Object references")]
+    public Transform LaneEndTransform;
 
     // Local vars
     int currentWave = 0;
@@ -59,14 +62,14 @@ public class GameManager : MonoBehaviour
         }
         if (allLanesFinished)
         {
-            onWaveEnd?.Invoke();
+            onWaveEnd?.Invoke(currentWave);
             CancelInvoke(nameof(StartNextWave));
             Invoke(nameof(StartNextWave), TimeBetweenWaves);
         }
     }
     void StartWave(int wave)
     {
-        onWaveStart?.Invoke();
+        onWaveStart?.Invoke(wave);
         bool noMoreWaves = true;
         foreach (Lane lane in Lanes)
         {
@@ -107,5 +110,10 @@ public class GameManager : MonoBehaviour
             WaveAction.CATERPILLAR => instance.PrefabCaterpillar,
             _ => null
         };
+    }
+    public void OnEnemyReachEnd(Enemy enemy)
+    {
+        onGameLose?.Invoke();
+        gameActive = false;
     }
 }
