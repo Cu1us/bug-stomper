@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour
     [Header("Object references")]
     public Transform LaneEndTransform;
 
+    [Header("UI and Menus")]
+    public Text waveText;
+    
     // Local vars
     int currentWave = 0;
     bool allWavesFinished = false;
