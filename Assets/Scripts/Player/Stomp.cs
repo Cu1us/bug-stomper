@@ -23,7 +23,7 @@ public class Stomp : MonoBehaviour
         Enemy hit = other.GetComponent<Enemy>();
         if (hit != null)
         {
-            hit.Flip();
+            hit.HitByShockwave();
         }
     }
 }

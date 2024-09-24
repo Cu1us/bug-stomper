@@ -65,7 +65,8 @@ public enum WaveAction
 {
     WAIT,
     SHELL,
-    CATERPILLAR
+    CATERPILLAR,
+    SNAIL
 }
 
 [System.Serializable]

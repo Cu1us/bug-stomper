@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [Header("Enemy prefabs")]
     public Enemy PrefabShellEnemy;
     public Enemy PrefabCaterpillar;
+    public Enemy PrefabSnail;
+
 
     [Header("Events")]
 
@@ -121,6 +123,7 @@ public class GameManager : MonoBehaviour
         {
             WaveAction.SHELL => instance.PrefabShellEnemy,
             WaveAction.CATERPILLAR => instance.PrefabCaterpillar,
+            WaveAction.SNAIL => instance.PrefabSnail,
             _ => null
         };
     }

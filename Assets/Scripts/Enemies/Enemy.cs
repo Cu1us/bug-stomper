@@ -74,7 +74,7 @@ public abstract class Enemy : MonoBehaviour
     {
         sr.color = Color.white;
     }
-    public void Kill()
+    public virtual void Kill()
     {
         Destroy(gameObject);
     }
