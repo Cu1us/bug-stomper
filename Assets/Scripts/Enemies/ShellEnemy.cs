@@ -18,4 +18,9 @@ public class ShellEnemy : Enemy
     {
         Flip();
     }
+
+    protected override void Move()
+    {
+        if (!flipped) base.Move();
+    }
 }
