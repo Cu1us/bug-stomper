@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI and Menus")]
     public Text waveText;
-    
+
     // Local vars
     int currentWave = 0;
     bool allWavesFinished = false;
@@ -99,13 +99,19 @@ public class GameManager : MonoBehaviour
     {
         if (allWavesFinished && gameActive)
         {
+            bool allEnemiesDead = true;
             foreach (Lane lane in Lanes)
             {
-                if (lane.transform.childCount == 0)
+                if (lane.transform.childCount > 0)
                 {
-                    gameActive = allWavesFinished = false;
-                    onGameFinish?.Invoke();
+                    allEnemiesDead = false;
+                    break;
                 }
+            }
+            if (allEnemiesDead)
+            {
+                gameActive = allWavesFinished = false;
+                onGameFinish?.Invoke();
             }
         }
     }

@@ -33,6 +33,11 @@ public abstract class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Move();
+    }
+
+    protected virtual void Move()
+    {
         float moveDistance = movementSpeed * Time.fixedDeltaTime;
         if (parentLane && parentLane.currentWave != null)
         {
@@ -44,6 +49,7 @@ public abstract class Enemy : MonoBehaviour
             OnReachEnd();
         }
     }
+
     public virtual void Damage(int damage)
     {
         health -= damage;
