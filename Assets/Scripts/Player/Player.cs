@@ -4,29 +4,43 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+
 public class Player : MonoBehaviour
 {
-    [SerializeField] int laneNumber = 0;
+    public int laneNumber = 0;
     Lane currentLane;
-    [SerializeField] float laneYSize = 5;
+    [Header("Parameters")]
     [SerializeField] float fireRate = .5f;
-    float fireTimer;
     [SerializeField] float stompRate = 5f;
-    float stompTimer;
-    [SerializeField] Projectile projectile;
-    [SerializeField] StompWave stompWave;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] float tweakYPos = -0.3f;
+
+    [Header("References")]
     [SerializeField] Transform throwTransform;
     [SerializeField] Transform stompTransform;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] Projectile projectile;
+    [SerializeField] Stomp stompWave;
+    Animator animator;
+
+    //local vars
+    float fireTimer;
+    float stompTimer;
 
     void Start()
     {
-        Application.targetFrameRate = 60;
+        animator = GetComponent<Animator>();
         SetLane();
     }
 
+    // TODO
+    // Add states to prevent movement and actions when in other states than idle.
+
     void Update()
     {
+        if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
+
         if (Input.GetButtonDown("Vertical"))
         {
             SetLane();
@@ -36,23 +50,30 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && stompTimer <= 0)
         {
-            Vector3 spawnPos = stompTransform.position;
-            Instantiate(stompWave, spawnPos, Quaternion.identity);
             stompTimer = stompRate;
+            animator.Play("GnomeStomp");
+            Invoke(nameof(Stomp), stompRate);
         }
 
         if (Input.GetButtonDown("Fire1") && fireTimer <= 0)
         {
+            fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
             Instantiate(projectile, spawnPos, Quaternion.identity);
-            fireTimer = fireRate;
+            animator.Play("GnomeThrow");
         }
+    }
+
+    void Stomp()
+    {
+        Vector3 spawnPos = stompTransform.position;
+        Instantiate(stompWave, spawnPos, Quaternion.identity);
     }
 
     private void SetLane()
     {
         laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
         float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
-        transform.position = new Vector3(transform.position.x, y);
+        transform.position = new Vector3(transform.position.x, y + tweakYPos);
     }
 }

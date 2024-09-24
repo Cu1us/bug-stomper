@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,18 +21,25 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent onWaveStart;
     public UnityEvent onWaveEnd;
+    public UnityEvent onGameFinish;
 
     // Local vars
     int currentWave = 0;
+    bool allWavesFinished = false;
+    bool gameActive = false;
 
     [ContextMenu("Start game")]
-    void StartGame()
+    public void StartGame()
     {
+        if (gameActive) return;
+        gameActive = true;
         currentWave = 0;
         StartNextWave();
     }
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         if (instance == null) instance = this;
         foreach (Lane lane in Lanes)
         {
@@ -58,15 +67,37 @@ public class GameManager : MonoBehaviour
     void StartWave(int wave)
     {
         onWaveStart?.Invoke();
+        bool noMoreWaves = true;
         foreach (Lane lane in Lanes)
         {
-            lane.StartWave(wave);
+            if (lane.StartWave(wave))
+            {
+                noMoreWaves = false;
+            }
+        }
+        if (noMoreWaves)
+        {
+            allWavesFinished = true;
         }
     }
     void StartNextWave()
     {
         StartWave(currentWave);
         currentWave++;
+    }
+    void Update()
+    {
+        if (allWavesFinished)
+        {
+            foreach (Lane lane in Lanes)
+            {
+                if (lane.transform.childCount == 0)
+                {
+                    gameActive = allWavesFinished = false;
+                    onGameFinish?.Invoke();
+                }
+            }
+        }
     }
     public static Enemy GetEnemyPrefab(WaveAction type)
     {

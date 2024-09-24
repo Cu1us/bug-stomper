@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24d96c433c32027f8aad4116d67a5df3
+guid: 74153b9c10b30b346b1b31548befe45e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,106 +110,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gnomecreep_Throw_animation_Gamejam_0
+      name: Gnomecreep_Stomp_Animation_Gamejam_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 33
-        width: 32
-        height: 32
-      alignment: 0
+        width: 16
+        height: 25
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12ea551dce7b8674993902532405d120
-      internalID: -1156779386
+      spriteID: 52ce0eb4f1b2dd44e8e642648cdeaa79
+      internalID: 8195840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gnomecreep_Throw_animation_Gamejam_1
+      name: Gnomecreep_Stomp_Animation_Gamejam_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 35
         y: 33
-        width: 32
-        height: 32
-      alignment: 0
+        width: 18
+        height: 26
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef099ef3c943917449165acebdf1c9bb
-      internalID: 917398453
+      spriteID: fa325a5ee3ec7644aa8a7d1c05235d55
+      internalID: 1561424295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gnomecreep_Throw_animation_Gamejam_2
+      name: Gnomecreep_Stomp_Animation_Gamejam_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 68
         y: 33
-        width: 32
-        height: 32
-      alignment: 0
+        width: 18
+        height: 26
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21b415c0661d82a4096871cde854e541
-      internalID: -2067998062
+      spriteID: b39523441107ed049addcdc218fa8342
+      internalID: 1634136882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gnomecreep_Throw_animation_Gamejam_3
+      name: Gnomecreep_Stomp_Animation_Gamejam_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
+        width: 18
+        height: 25
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2b02f9a974858a4dabad800976bb240
-      internalID: -995603318
+      spriteID: 1606735f89082534d802b464cccdc63a
+      internalID: -590046848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gnomecreep_Throw_animation_Gamejam_4
+      name: Gnomecreep_Stomp_Animation_Gamejam_4
       rect:
         serializedVersion: 2
-        x: 33
+        x: 35
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
+        width: 20
+        height: 24
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db33cbc9b70adda48a00730f3b0da858
-      internalID: -1023838567
+      spriteID: 01471b51f2e6f7c47beb5c9fa7ee94e2
+      internalID: 1098223758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomecreep_Stomp_Animation_Gamejam_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 20
+        height: 25
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4181f1db38686b459230a68114d39cd
+      internalID: 1266840876
       vertices: []
       indices: 
       edges: []
@@ -225,11 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gnomecreep_Throw_animation_Gamejam_0: -1156779386
-      Gnomecreep_Throw_animation_Gamejam_1: 917398453
-      Gnomecreep_Throw_animation_Gamejam_2: -2067998062
-      Gnomecreep_Throw_animation_Gamejam_3: -995603318
-      Gnomecreep_Throw_animation_Gamejam_4: -1023838567
+      Gnomecreep_Stomp_Animation_Gamejam_0: 8195840
+      Gnomecreep_Stomp_Animation_Gamejam_1: 1561424295
+      Gnomecreep_Stomp_Animation_Gamejam_2: 1634136882
+      Gnomecreep_Stomp_Animation_Gamejam_3: -590046848
+      Gnomecreep_Stomp_Animation_Gamejam_4: 1098223758
+      Gnomecreep_Stomp_Animation_Gamejam_5: 1266840876
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

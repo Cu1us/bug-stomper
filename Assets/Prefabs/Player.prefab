@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5652204569010057451}
   - component: {fileID: 21825265119155642}
   - component: {fileID: 3247146218678203326}
-  - component: {fileID: 5692281868178207699}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -50,14 +49,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneNumber: 1
-  laneYSize: 3.5
   fireRate: 0.25
-  stompRate: 2
-  projectile: {fileID: 5712345382162022589, guid: 794717a72711b1b43865fcfd12e495cd, type: 3}
-  stompWave: {fileID: 161228094625569937, guid: 78d80bfaa642d024ba8660a9e5f08f49, type: 3}
-  gameManager: {fileID: 0}
+  stompRate: 0.5
   throwTransform: {fileID: 5805450781487334120}
   stompTransform: {fileID: 1835954869283170936}
+  gameManager: {fileID: 0}
+  projectile: {fileID: 5712345382162022589, guid: 794717a72711b1b43865fcfd12e495cd, type: 3}
+  stompWave: {fileID: 161228094625569937, guid: 78d80bfaa642d024ba8660a9e5f08f49, type: 3}
+  tweakYPos: -0.5
 --- !u!212 &21825265119155642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -131,51 +130,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &5692281868178207699
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112261372255210800}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
 --- !u!1 &4916261673194657391
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 4916261673194657391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0.92, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 8520049572725672835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: -1, z: 0}
+  m_LocalPosition: {x: 0.91, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
