@@ -50,13 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 1
   fireRate: 0.25
-  stompRate: 0.5
+  stompRate: 0.55
+  tweakYPos: -0.5
   throwTransform: {fileID: 5805450781487334120}
   stompTransform: {fileID: 1835954869283170936}
   gameManager: {fileID: 0}
   projectile: {fileID: 5712345382162022589, guid: 794717a72711b1b43865fcfd12e495cd, type: 3}
   stompWave: {fileID: 161228094625569937, guid: 78d80bfaa642d024ba8660a9e5f08f49, type: 3}
-  tweakYPos: -0.5
 --- !u!212 &21825265119155642
 SpriteRenderer:
   m_ObjectHideFlags: 0
