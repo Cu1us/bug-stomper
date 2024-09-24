@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float movementSpeed = 2;
     [SerializeField] protected int health = 2;
     [SerializeField] protected bool flipped;
+    protected float lastFlipTime = 0;
     protected SpriteRenderer sr;
     protected Animator animator;
     protected Rigidbody2D rb;
@@ -29,7 +30,8 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Flip()
     {
-        sr.flipY = flipped = !flipped;
+        flipped = !flipped;
+        lastFlipTime = Time.time;
     }
     void FixedUpdate()
     {
