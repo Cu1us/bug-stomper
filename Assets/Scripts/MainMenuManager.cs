@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField]
-    public SceneAsset GameScene;
+    public int GameScene;
     public void StartGame()
     {
-        SceneManager.LoadScene(GameScene.name);
+        SceneManager.LoadScene(GameScene);
     }
 }

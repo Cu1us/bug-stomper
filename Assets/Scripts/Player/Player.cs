@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     //local vars
     float fireTimer;
     float stompTimer;
+    float stompChargeTime;
 
     void Start()
     {
@@ -39,23 +40,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
-
-        if (Input.GetButtonDown("Vertical"))
-        {
-            SetLane();
-        }
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && stompTimer <= 0)
-        {
-            stompTimer = stompRate;
-            animator.Play("GnomeStomp");
-            Invoke(nameof(Stomp), stompRate);
-        }
+        if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
 
-        if (Input.GetButtonDown("Fire1") && fireTimer <= 0)
+        if (Input.GetButtonDown("Vertical") && stompChargeTime <= 0) SetLane();
+
+        Stomp();
+
+        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompChargeTime <= 0)
         {
             fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
@@ -66,8 +60,58 @@ public class Player : MonoBehaviour
 
     void Stomp()
     {
+        if (Input.GetButtonDown("Jump") && stompTimer <= 0)
+        {
+            animator.Play("GnomeCharge");
+        }
+
+        if (Input.GetButton("Jump"))
+        {
+            stompChargeTime += Time.deltaTime;
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            if (stompChargeTime < 0.1f)
+            {
+                stompChargeTime = 0;
+                animator.Play("GnomeIdle");
+                return;
+            }
+
+            animator.Play("GnomeStomp");
+            stompTimer = stompRate;
+            StartStomp(laneNumber);
+            if (stompChargeTime >= 1.0f)
+            {
+                if (laneNumber == 1)
+                {
+                    StartStomp(laneNumber+1);
+                    StartStomp(laneNumber-1);
+                }
+                else
+                {
+                    if (laneNumber == 2)
+                    {
+                        StartStomp(laneNumber-1);
+                    }
+                    
+                    if (laneNumber == 0)
+                    {
+                        StartStomp(laneNumber+1);
+                    }
+                }
+            }
+            stompChargeTime = 0;
+        }
+    }
+
+    void StartStomp(int laneIn)
+    {
         Vector3 spawnPos = stompTransform.position;
+        spawnPos.y = gameManager.Lanes[laneIn].gameObject.transform.position.y + tweakYPos;
         Instantiate(stompWave, spawnPos, Quaternion.identity);
+        animator.Play("GnomeStomp");
     }
 
     private void SetLane()
