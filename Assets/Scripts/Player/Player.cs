@@ -9,25 +9,28 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int laneNumber = 0;
+    public int laneNumber = 0;
     Lane currentLane;
-    [SerializeField] float laneYSize = 5;
+    [Header("Parameters")]
     [SerializeField] float fireRate = .5f;
-    float fireTimer;
     [SerializeField] float stompRate = 5f;
-    float stompTimer;
-    [SerializeField] Projectile projectile;
-    [SerializeField] StompWave stompWave;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] float tweakYPos = -0.3f;
+
+    [Header("References")]
     [SerializeField] Transform throwTransform;
     [SerializeField] Transform stompTransform;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] Projectile projectile;
+    [SerializeField] Stomp stompWave;
     Animator animator;
-    [SerializeField] float offY = -0.3f;
+
+    //local vars
+    float fireTimer;
+    float stompTimer;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        Application.targetFrameRate = 60;
         SetLane();
     }
 
@@ -71,6 +74,6 @@ public class Player : MonoBehaviour
     {
         laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
         float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
-        transform.position = new Vector3(transform.position.x, y + offY);
+        transform.position = new Vector3(transform.position.x, y + tweakYPos);
     }
 }

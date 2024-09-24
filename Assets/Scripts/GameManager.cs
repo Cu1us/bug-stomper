@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         if (instance == null) instance = this;
         foreach (Lane lane in Lanes)
         {
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
         if (noMoreWaves)
         {
             allWavesFinished = true;
+            //SceneManager.LoadScene(0);
         }
     }
     void StartNextWave()

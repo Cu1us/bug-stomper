@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StompWave : MonoBehaviour
+public class Stomp : MonoBehaviour
 {
     [SerializeField] float velocity = 0.5f;
-    //SpriteRenderer sr;
-    MeshRenderer test;
 
     void Start()
     {
-        //sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         transform.position += new Vector3(velocity*Time.deltaTime,0);
 
-        //if (!sr.isVisible) Destroy(gameObject);
         if (transform.position.x >= 15) Destroy(gameObject);
 
     }
