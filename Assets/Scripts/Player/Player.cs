@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
                 animator.Play("GnomeIdle");
                 return;
             }
-
+            CameraShake.Play(Mathf.Min(stompChargeTime / 2, 1.5f));
             animator.Play("GnomeStomp");
             stompTimer = stompRate;
             StartStomp(laneNumber);
