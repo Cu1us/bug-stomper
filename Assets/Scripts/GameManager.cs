@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     }
     void OnLaneFinish()
     {
+        if (!gameActive) return;
         bool allLanesFinished = true;
         foreach (Lane lane in Lanes)
         {
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
     }
     void StartWave(int wave)
     {
+        if (!gameActive) return;
         onWaveStart?.Invoke(wave);
         bool noMoreWaves = true;
         foreach (Lane lane in Lanes)
@@ -89,12 +91,13 @@ public class GameManager : MonoBehaviour
     }
     void StartNextWave()
     {
+        if (!gameActive) return;
         StartWave(currentWave);
         currentWave++;
     }
     void Update()
     {
-        if (allWavesFinished)
+        if (allWavesFinished && gameActive)
         {
             foreach (Lane lane in Lanes)
             {
@@ -117,6 +120,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnEnemyReachEnd(Enemy enemy)
     {
+        if (!gameActive) return;
         onGameLose?.Invoke();
         gameActive = false;
     }
