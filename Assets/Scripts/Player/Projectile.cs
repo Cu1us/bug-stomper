@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class Projectile : MonoBehaviour
 {
     const float gravityWhenDeflected = 3.5f;
-    [SerializeField][Range(0.1f, 10)] float baseSpeed = 2;
+    [SerializeField][Range(0.1f, 50f)] float baseSpeed = 2;
     [SerializeField][Range(-200f, 50f)] float rotation = 2;
     [SerializeField][Range(1, 10)] int damage = 1;
     SpriteRenderer sr;
