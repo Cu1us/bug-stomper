@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
-    const float gravityWhenDeflected = 2f;
+    const float gravityWhenDeflected = 3.5f;
     [SerializeField][Range(0.1f, 10)] float baseSpeed = 2;
     [SerializeField][Range(-200f, 50f)] float rotation = 2;
     [SerializeField][Range(1, 10)] int damage = 1;
@@ -45,8 +45,7 @@ public class Projectile : MonoBehaviour
                     break;
                 case ReturnBehavior.DEFLECT:
                     hasBeenDeflected = true;
-                    velocity = -velocity + Vector2.up * Random.Range(-1f, 1f);
-                    GetComponent<SpriteRenderer>().color *= 0.6f;
+                    velocity = -velocity + Vector2.up * Random.Range(-1f, 1.75f);
                     break;
             }
         }
