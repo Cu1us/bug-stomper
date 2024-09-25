@@ -21,11 +21,12 @@ public class UIManager : MonoBehaviour
         Score.onAddScore += SetScoreText;
         Score.SetScore(score);
         Score.onAddScore += SpawnPopupText;
+        SetWaveText(0);
     }
 
     public void SetWaveText(int inWave)
     {
-        waveText.text = "Wave " + (inWave+1);
+        waveText.text = "Wave " + (inWave);
     }
 
     public void SetScoreText(int scoreIn, Vector3 posIn)
@@ -56,18 +57,15 @@ public class UIManager : MonoBehaviour
 
 public static class Score
 {
-    //public static int score = 0;
     public static Action<int,Vector3> onAddScore;
     
     public static void AddScore(int scoreIn, Vector3 posIn)
     {
-        //score += scoreIn;
         onAddScore?.Invoke(scoreIn,posIn);
     }
 
     public static void SetScore(int scoreIn)
     {
-        //score = scoreIn;
         onAddScore?.Invoke(scoreIn,Vector3.zero);
     }
 }

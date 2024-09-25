@@ -47,31 +47,4 @@ MonoBehaviour:
   Waves:
   - timeBetweenActions: 5
     enemyMoveSpeedMultiplier: 1
-    Actions: 010000000000000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000003000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
-  - timeBetweenActions: 1
-    enemyMoveSpeedMultiplier: 1
-    Actions: 000000000100000001000000
+    Actions: 050000000500000005000000000000000100000000000000000000000100000000000000000000000200000000000000
