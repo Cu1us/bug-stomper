@@ -35,18 +35,18 @@ public class CaterpillarEnemy : MonoBehaviour
             Destroy(this);
         }
     }
-    bool IsEverySegmentFlipped()
+    bool IsAnySegmentWalking()
     {
         foreach (CaterpillarSegment segment in Segments)
         {
             if (!segment.flipped)
-                return false;
+                return true;
         }
-        return true;
+        return false;
     }
     void Update()
     {
-        if (!IsEverySegmentFlipped())
+        if (IsAnySegmentWalking())
         {
             // Move parent
             float moveDistance = movementSpeed * Time.fixedDeltaTime;
