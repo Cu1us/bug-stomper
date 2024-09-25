@@ -101,8 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1.1
-  health: 3
-  flipped: 0
+  health: 4
   parentLane: {fileID: 0}
   pointsOnKill: 50
   flipAnimationTime: 0.8

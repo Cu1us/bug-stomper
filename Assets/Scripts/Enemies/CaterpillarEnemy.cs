@@ -12,6 +12,8 @@ public class CaterpillarEnemy : MonoBehaviour
     float distanceBetweenSegments = 1;
     [SerializeField]
     float movementSpeed = 1;
+    [SerializeField]
+    int pointsOnKill = 100;
     public Lane parentLane;
     public void Spawn(int segments)
     {
@@ -33,6 +35,10 @@ public class CaterpillarEnemy : MonoBehaviour
         if (Segments.Count == 0)
         {
             Destroy(this);
+        }
+        if (Segments.Count == 1)
+        {
+            Segments[0].pointsOnKill = pointsOnKill;
         }
     }
     bool IsAnySegmentWalking()
