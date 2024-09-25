@@ -13,12 +13,14 @@ public class UIManager : MonoBehaviour
     public Text scoreText;
     public ScorePopup scorePopup;
     public Canvas worldCanvas;
+    public GameObject tutorial;
 
     int score = 0;
     int currentWave;
 
     void Start()
     {
+        tutorial.SetActive(true);
         Score.onAddScore += SetScoreText;
         Score.SetScore(score);
         Score.onAddScore += SpawnPopupText;

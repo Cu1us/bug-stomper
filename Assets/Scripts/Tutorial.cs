@@ -1,26 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    int currentWave;
-    string[] tutorialTexts;
+    [Header("Tutorial setup:")]
+    [SerializeField]string[] tutorialTexts;
+    [SerializeField]float[] timings;
+
     Text text;
-    // Start is called before the first frame update
+    float timer = 0;
+    int tutTipNr = 0;
+
     void Start()
     {
-        currentWave = GameManager.instance.currentWave;
         text = GetComponent<Text>();
+        timer = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (currentWave == 0)
+        timer += Time.deltaTime;
+
+        if (tutTipNr > tutorialTexts.Count()-1) return;
+
+        if (timer > timings[tutTipNr])
         {
-            Debug.Log("Do tutorial text");
+            timer = 0;
+            text.text = tutorialTexts[tutTipNr];
+            tutTipNr ++;
         }
     }
 }
