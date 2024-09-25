@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class SnailEnemy : Enemy
 {
     [SerializeField]
@@ -23,6 +24,7 @@ public class SnailEnemy : Enemy
             {
                 health = 0;
                 inShell = true;
+                GetComponent<Animator>().Play("EnterShell");
             }
             return Projectile.ReturnBehavior.HIT;
         }
