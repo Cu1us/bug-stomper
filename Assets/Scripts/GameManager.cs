@@ -15,9 +15,9 @@ public class GameManager : MonoBehaviour
     public float TimeBetweenWaves = 1;
 
     [Header("Enemy prefabs")]
-    public Enemy PrefabShellEnemy;
-    public Enemy PrefabCaterpillar;
-    public Enemy PrefabSnail;
+    public ShellEnemy PrefabShellEnemy;
+    public CaterpillarEnemy PrefabCaterpillar;
+    public SnailEnemy PrefabSnail;
 
 
     [Header("Events")]
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         return type switch
         {
             WaveAction.SHELL => instance.PrefabShellEnemy,
-            WaveAction.CATERPILLAR => instance.PrefabCaterpillar,
+            //WaveAction.CATERPILLAR => instance.PrefabCaterpillar,
             WaveAction.SNAIL => instance.PrefabSnail,
             _ => null
         };
