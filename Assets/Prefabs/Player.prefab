@@ -52,8 +52,8 @@ MonoBehaviour:
   fireRate: 0.1
   stompRate: 0.1
   tweakYPos: -0.5
-  minChargeTime: 0.05
-  maxChargeTime: 0.55
+  minChargeTime: 0.2
+  maxChargeTime: 0.6
   throwTransform: {fileID: 5805450781487334120}
   stompTransform: {fileID: 1835954869283170936}
   gameManager: {fileID: 0}

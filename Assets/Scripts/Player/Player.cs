@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        stompTimer -= Time.deltaTime;
+        fireTimer -= Time.deltaTime;
 
         if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
 
@@ -49,9 +51,8 @@ public class Player : MonoBehaviour
 
         Stomp();
 
-        fireTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompChargeTimer <= 0)
+        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompTimer <= 0)
         {
             fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
@@ -62,7 +63,6 @@ public class Player : MonoBehaviour
 
     void Stomp()
     {
-        stompTimer -= Time.deltaTime;
 
         if (stompTimer > 0 && stompChargeTimer <= 0) return;
 
