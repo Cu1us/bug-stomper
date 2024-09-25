@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        stompTimer -= Time.deltaTime;
+        fireTimer -= Time.deltaTime;
 
         if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
 
@@ -49,9 +51,8 @@ public class Player : MonoBehaviour
 
         Stomp();
 
-        fireTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompChargeTimer <= 0)
+        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompTimer <= 0 && stompChargeTimer <= 0)
         {
             fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
@@ -62,8 +63,6 @@ public class Player : MonoBehaviour
 
     void Stomp()
     {
-        stompTimer -= Time.deltaTime;
-
         if (stompTimer > 0 && stompChargeTimer <= 0) return;
 
         if (Input.GetButtonDown("Jump") )
@@ -93,7 +92,6 @@ public class Player : MonoBehaviour
             CameraShake.Play(Mathf.Clamp(stompChargeTimer / 2, 0.15f, 1.25f));
             animator.SetBool("stomp",true);
             animator.SetBool("charge",false);
-            stompTimer = stompRate;
             StartStomp(laneNumber);
             
             if (stompChargeTimer >= maxChargeTime)
@@ -117,6 +115,7 @@ public class Player : MonoBehaviour
                 }
             }
             stompChargeTimer = 0;
+            stompTimer = stompRate;
         }
     }
 
@@ -125,7 +124,6 @@ public class Player : MonoBehaviour
         Vector3 spawnPos = stompTransform.position;
         spawnPos.y = gameManager.Lanes[laneIn].gameObject.transform.position.y + tweakYPos;
         Instantiate(stompWave, spawnPos, Quaternion.identity);
-        //animator.Play("GnomeStomp");
     }
 
     private void SetLane()
