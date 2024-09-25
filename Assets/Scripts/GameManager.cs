@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public Text waveText;
 
     // Local vars
-    int currentWave = 0;
+    public int currentWave = 0;
     bool allWavesFinished = false;
     bool gameActive = false;
 
