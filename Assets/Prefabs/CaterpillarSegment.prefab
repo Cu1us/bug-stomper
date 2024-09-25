@@ -195,6 +195,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1.5
   health: 2
-  flipped: 0
   parentLane: {fileID: 0}
-  pointsOnKill: 50
+  pointsOnKill: 20

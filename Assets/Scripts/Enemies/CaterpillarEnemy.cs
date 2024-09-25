@@ -34,7 +34,7 @@ public class CaterpillarEnemy : MonoBehaviour
         Segments.Remove(segment);
         if (Segments.Count == 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         if (Segments.Count == 1)
         {
