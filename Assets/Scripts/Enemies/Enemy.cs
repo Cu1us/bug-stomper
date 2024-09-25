@@ -78,7 +78,7 @@ public abstract class Enemy : MonoBehaviour
     }
     public virtual void Kill()
     {
-        Score.AddScore(pointsOnKill);
+        Score.AddScore(pointsOnKill,transform.position);
         Destroy(gameObject);
     }
     public void OnReachEnd()

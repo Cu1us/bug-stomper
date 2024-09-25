@@ -11,11 +11,16 @@ public class UIManager : MonoBehaviour
     [Header("UI and Menus")]
     public Text waveText;
     public Text scoreText;
+    public ScorePopup scorePopup;
+    public Canvas worldCanvas;
+
+    int score = 0;
 
     void Start()
     {
         Score.onAddScore += SetScoreText;
-        Score.SetScore(0);
+        Score.SetScore(score);
+        Score.onAddScore += SpawnPopupText;
     }
 
     public void SetWaveText(int inWave)
@@ -23,9 +28,17 @@ public class UIManager : MonoBehaviour
         waveText.text = "Wave " + (inWave+1);
     }
 
-    public void SetScoreText(int scoreIn)
+    public void SetScoreText(int scoreIn, Vector3 posIn)
     {
-        scoreText.text = ""+scoreIn;
+        score += scoreIn;
+        scoreText.text = ""+score;
+    }
+
+    void SpawnPopupText(int scoreIn, Vector3 posIn)
+    {
+        var popup =  Instantiate(scorePopup, worldCanvas.transform);
+        popup.spawnPos = posIn;
+        popup.scoreValue = scoreIn;
     }
 
 
@@ -37,23 +50,24 @@ public class UIManager : MonoBehaviour
     private void OnDestroy() 
     {
         Score.onAddScore -= SetScoreText;
+        Score.onAddScore -= SpawnPopupText;
     }
 }
 
 public static class Score
 {
-    public static int score = 0;
-    public static Action<int> onAddScore;
+    //public static int score = 0;
+    public static Action<int,Vector3> onAddScore;
     
-    public static void AddScore(int scoreIn)
+    public static void AddScore(int scoreIn, Vector3 posIn)
     {
-        score += scoreIn;
-        onAddScore?.Invoke(score);
+        //score += scoreIn;
+        onAddScore?.Invoke(scoreIn,posIn);
     }
 
     public static void SetScore(int scoreIn)
     {
-        score = scoreIn;
-        onAddScore?.Invoke(score);
+        //score = scoreIn;
+        onAddScore?.Invoke(scoreIn,Vector3.zero);
     }
 }
