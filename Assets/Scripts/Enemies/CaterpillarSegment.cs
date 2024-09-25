@@ -42,4 +42,8 @@ public class CaterpillarSegment : Enemy
         onDeath?.Invoke(this);
         base.Kill();
     }
+    public override void Move()
+    {
+        return;
+    }
 }
