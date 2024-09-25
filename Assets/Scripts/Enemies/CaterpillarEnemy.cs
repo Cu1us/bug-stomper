@@ -21,8 +21,8 @@ public class CaterpillarEnemy : MonoBehaviour
             CaterpillarSegment segment = Instantiate(SegmentPrefab, transform);
             segment.parentLane = parentLane;
             segment.onDeath += OnSegmentDeath;
-            if (flip) segment.SetFlipped(true);
-            if (Random.Range(0,3) != 0) // 2/3 chance
+            segment.SetFlipped(flip);
+            if (Random.Range(0, 3) != 0) // 2/3 chance
                 flip = !flip;
             segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
         }
@@ -35,14 +35,26 @@ public class CaterpillarEnemy : MonoBehaviour
             Destroy(this);
         }
     }
+    bool IsEverySegmentFlipped()
+    {
+        foreach (CaterpillarSegment segment in Segments)
+        {
+            if (!segment.flipped)
+                return false;
+        }
+        return true;
+    }
     void Update()
     {
-        // Move parent
-        float moveDistance = movementSpeed * Time.fixedDeltaTime;
-        if (parentLane && parentLane.currentWave != null)
+        if (!IsEverySegmentFlipped())
         {
-            moveDistance *= parentLane.currentWave.enemyMoveSpeedMultiplier;
+            // Move parent
+            float moveDistance = movementSpeed * Time.fixedDeltaTime;
+            if (parentLane && parentLane.currentWave != null)
+            {
+                moveDistance *= parentLane.currentWave.enemyMoveSpeedMultiplier;
+            }
+            transform.position += Vector3.left * moveDistance;
         }
-        transform.position += Vector3.left * moveDistance;
     }
 }
