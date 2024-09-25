@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using System;
 
 public class Lane : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class Lane : MonoBehaviour
     int currentWaveStep = 0;
 
     public Wave currentWave { get { return (waveNumber >= 0 && waveNumber < Waves.Length) ? Waves[waveNumber] : null; } } // Returns the current wave object, or null if one isn't defined for this lane
-    public Action onFinishSpawning;
+    public System.Action onFinishSpawning;
 
     public bool StartWave(int wave) // returns false if there are no more waves
     {
@@ -50,8 +48,25 @@ public class Lane : MonoBehaviour
     void DoWaveAction(WaveAction action)
     {
         if (action == WaveAction.WAIT) return;
-        Enemy enemyPrefab = GameManager.GetEnemyPrefab(action);
-        SpawnEnemy(enemyPrefab);
+        if (action == WaveAction.CATERPILLAR_LONG || action == WaveAction.CATERPILLAR_SHORT)
+        {
+            CaterpillarEnemy enemy = Instantiate(GameManager.instance.PrefabCaterpillar, transform);
+            enemy.parentLane = this;
+            enemy.transform.position = transform.position;
+            int segmentCount = action switch
+            {
+                WaveAction.CATERPILLAR_SHORT => 3,
+                WaveAction.CATERPILLAR_LONG => 5,
+                _ => 4
+            };
+            segmentCount += Random.Range(0,2);
+            enemy.Spawn(segmentCount);
+        }
+        else
+        {
+            Enemy enemyPrefab = GameManager.GetEnemyPrefab(action);
+            SpawnEnemy(enemyPrefab);
+        }
     }
     void SpawnEnemy(Enemy prefab)
     {
@@ -65,7 +80,8 @@ public enum WaveAction
 {
     WAIT,
     SHELL,
-    CATERPILLAR,
+    CATERPILLAR_SHORT,
+    CATERPILLAR_LONG,
     SNAIL
 }
 

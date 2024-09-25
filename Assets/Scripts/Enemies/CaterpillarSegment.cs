@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CaterpillarSegment : Enemy
 {
+    public System.Action<CaterpillarSegment> onDeath;
     public override Projectile.ReturnBehavior HitByProjectile(int damage)
     {
         if (flipped)
@@ -17,5 +18,16 @@ public class CaterpillarSegment : Enemy
     public override void HitByShockwave()
     {
         Flip();
+        sr.flipY = flipped;
+    }
+    public void SetFlipped(bool isFlipped)
+    {
+        flipped = isFlipped;
+        sr.flipY = flipped;
+    }
+    public override void Kill()
+    {
+        onDeath?.Invoke(this);
+        base.Kill();
     }
 }
