@@ -52,7 +52,7 @@ MonoBehaviour:
   fireRate: 0.05
   stompRate: 0.1
   tweakYPos: -0.5
-  minChargeTime: 0.2
+  minChargeTime: 0.15
   maxChargeTime: 0.6
   throwTransform: {fileID: 5805450781487334120}
   stompTransform: {fileID: 1835954869283170936}

@@ -46,6 +46,7 @@ public class Projectile : MonoBehaviour
                 case ReturnBehavior.DEFLECT:
                     hasBeenDeflected = true;
                     velocity = -velocity + Vector2.up * Random.Range(-1f, 1.75f);
+                    AudioController.Play("Deflect");
                     break;
             }
         }

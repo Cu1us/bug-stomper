@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
             Vector3 spawnPos = throwTransform.position;
             Instantiate(projectile, spawnPos, Quaternion.identity);
             animator.Play("GnomeThrow");
+            AudioController.Play("ThrowMushroom");
         }
     }
 
