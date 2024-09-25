@@ -18,6 +18,8 @@ public abstract class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     public Lane parentLane;
 
+    public int pointsOnKill = 50;
+
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -33,12 +35,12 @@ public abstract class Enemy : MonoBehaviour
         flipped = !flipped;
         lastFlipTime = Time.time;
     }
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move();
     }
 
-    protected virtual void Move()
+    public virtual void Move()
     {
         float moveDistance = movementSpeed * Time.fixedDeltaTime;
         if (parentLane && parentLane.currentWave != null)

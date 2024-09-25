@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class SnailEnemy : Enemy
 {
     [SerializeField]
@@ -23,6 +24,7 @@ public class SnailEnemy : Enemy
             {
                 health = 0;
                 inShell = true;
+                GetComponent<Animator>().Play("EnterShell");
             }
             return Projectile.ReturnBehavior.HIT;
         }
@@ -38,7 +40,7 @@ public class SnailEnemy : Enemy
             flipGroundY = transform.position.y;
         }
     }
-    protected override void Move()
+    public override void Move()
     {
         if (!inShell && !flipped) base.Move();
     }
@@ -50,7 +52,7 @@ public class SnailEnemy : Enemy
             float flipAnimProgress = flipAnimationCurve.Evaluate(flipProgress);
             transform.eulerAngles = new Vector3(0, 0, -180 * flipAnimProgress);
 
-            float jumpY = -Mathf.Pow(flipProgress * 2 - 1, 2) + 1;
+            float jumpY = -Mathf.Pow(flipProgress * 2 - 1, 2) + 0.9f;
             transform.position = new Vector3(transform.position.x, flipGroundY + jumpY, transform.position.z);
 
             if (flipProgress >= 1)

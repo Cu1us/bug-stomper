@@ -23,7 +23,7 @@ public class ShellEnemy : Enemy
         Flip();
     }
 
-    protected override void Move()
+    public override void Move()
     {
         if (!flipped && (Time.time - lastFlipTime) > flipAnimationTime / 2) base.Move();
     }

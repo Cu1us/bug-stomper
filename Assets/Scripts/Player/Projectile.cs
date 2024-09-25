@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class Projectile : MonoBehaviour
 {
     const float gravityWhenDeflected = 3.5f;
-    [SerializeField][Range(0.1f, 50f)] float baseSpeed = 2;
+    [SerializeField][Range(0.1f, 50f)] float speed = 2;
     [SerializeField][Range(-200f, 50f)] float rotation = 2;
     [SerializeField][Range(1, 10)] int damage = 1;
     SpriteRenderer sr;
@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        velocity = Vector2.right * baseSpeed;
+        velocity = Vector2.right * speed;
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
             velocity -= Vector2.up * Time.deltaTime * gravityWhenDeflected;
         }
         transform.position += (Vector3)velocity * Time.deltaTime;
-        transform.Rotate(0, 0, rotation * Time.deltaTime);
+        transform.Rotate(0, 0, rotation*speed * Time.deltaTime);
         if (!sr.isVisible) Destroy(gameObject);
     }
 
