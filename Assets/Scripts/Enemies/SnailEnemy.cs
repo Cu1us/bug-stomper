@@ -52,7 +52,7 @@ public class SnailEnemy : Enemy
             float flipAnimProgress = flipAnimationCurve.Evaluate(flipProgress);
             transform.eulerAngles = new Vector3(0, 0, -180 * flipAnimProgress);
 
-            float jumpY = -Mathf.Pow(flipProgress * 2 - 1, 2) + 1;
+            float jumpY = -Mathf.Pow(flipProgress * 2 - 1, 2) + 0.9f;
             transform.position = new Vector3(transform.position.x, flipGroundY + jumpY, transform.position.z);
 
             if (flipProgress >= 1)
