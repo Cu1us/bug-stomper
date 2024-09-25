@@ -27,6 +27,7 @@ public class CaterpillarEnemy : MonoBehaviour
             if (Random.Range(0, 3) != 0) // 2/3 chance
                 flip = !flip;
             segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
+            Segments.Add(segment);
         }
     }
     void OnSegmentDeath(CaterpillarSegment segment)
