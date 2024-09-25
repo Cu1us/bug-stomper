@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    static CameraShake instance;
     static float Intensity = 0;
     public float intensityModifier = 1;
     public Vector3 cameraPosition;
     void Start()
     {
+        instance = this;
         cameraPosition = transform.position;
     }
     public static void Play(float intensity)
     {
         if (intensity <= 0)
+        {
+            instance.cameraPosition = instance.transform.position;
             Intensity = intensity;
+        }
         else
             Intensity += intensity;
     }
