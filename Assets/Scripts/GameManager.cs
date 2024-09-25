@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public ShellEnemy PrefabShellEnemy;
     public CaterpillarEnemy PrefabCaterpillar;
     public SnailEnemy PrefabSnail;
+    public WormEnemy PrefabWorm;
+
 
 
     [Header("Events")]
@@ -124,6 +126,7 @@ public class GameManager : MonoBehaviour
             WaveAction.SHELL => instance.PrefabShellEnemy,
             //WaveAction.CATERPILLAR => instance.PrefabCaterpillar,
             WaveAction.SNAIL => instance.PrefabSnail,
+            WaveAction.WORM => instance.PrefabWorm,
             _ => null
         };
     }

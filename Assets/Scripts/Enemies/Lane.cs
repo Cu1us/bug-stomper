@@ -82,7 +82,8 @@ public enum WaveAction
     SHELL,
     CATERPILLAR_SHORT,
     CATERPILLAR_LONG,
-    SNAIL
+    SNAIL,
+    WORM
 }
 
 [System.Serializable]
