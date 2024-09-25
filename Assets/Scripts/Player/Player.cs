@@ -3,6 +3,7 @@ using System.Collections.Generic;
 //using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -25,6 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField] Projectile projectile;
     [SerializeField] Stomp stompWave;
     Animator animator;
+
+    public UnityEvent<float> onStomp;
 
     //local vars
     float fireTimer;
@@ -52,7 +55,7 @@ public class Player : MonoBehaviour
         Stomp();
 
 
-        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompTimer <= 0 && stompChargeTimer <= 0)
+        if (Input.GetButtonDown("Fire1") && fireTimer <= 0 && stompTimer <= 0 && stompChargeTimer <= 0)
         {
             fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
@@ -66,7 +69,7 @@ public class Player : MonoBehaviour
     {
         if (stompTimer > 0 && stompChargeTimer <= 0) return;
 
-        if (Input.GetButtonDown("Jump") )
+        if (Input.GetButtonDown("Jump"))
         {
             stompChargeTimer = 0;
             animator.SetBool("charge", true);
@@ -84,36 +87,42 @@ public class Player : MonoBehaviour
             {
                 stompChargeTimer = 0;
                 stompTimer = stompRate;
-                animator.SetBool("charge",false);
-                animator.SetBool("stomp",false);
+                animator.SetBool("charge", false);
+                animator.SetBool("stomp", false);
                 animator.Play("GnomeIdle");
                 return;
             }
+            onStomp?.Invoke(Mathf.Min(stompChargeTimer, maxChargeTime));
 
             CameraShake.Play(Mathf.Clamp(stompChargeTimer / 2, 0.15f, 1.25f));
-            animator.SetBool("stomp",true);
-            animator.SetBool("charge",false);
+            animator.SetBool("stomp", true);
+            animator.SetBool("charge", false);
             StartStomp(laneNumber);
-            
+
             if (stompChargeTimer >= maxChargeTime)
             {
+                AudioController.Play("BigStomp");
                 if (laneNumber == 1)
                 {
-                    StartStomp(laneNumber+1);
-                    StartStomp(laneNumber-1);
+                    StartStomp(laneNumber + 1);
+                    StartStomp(laneNumber - 1);
                 }
                 else
                 {
                     if (laneNumber == 2)
                     {
-                        StartStomp(laneNumber-1);
+                        StartStomp(laneNumber - 1);
                     }
-                    
+
                     if (laneNumber == 0)
                     {
-                        StartStomp(laneNumber+1);
+                        StartStomp(laneNumber + 1);
                     }
                 }
+            }
+            else
+            {
+                AudioController.Play("SmallStomp");
             }
             stompChargeTimer = 0;
             stompTimer = stompRate;

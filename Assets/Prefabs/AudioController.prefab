@@ -72,3 +72,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 041e1ab73e13ce6298583d4592bf5483, type: 3}
     - {fileID: 8300000, guid: 3b7fff2231c97ada1962f3bb06a71215, type: 3}
     - {fileID: 8300000, guid: 89d5ebc881f086d1a8da52f54fe2d850, type: 3}
+  - name: SmallStomp
+    pitchVariation: 1.25
+    clips:
+    - {fileID: 8300000, guid: a0a08a67f4175b398b7a1c4b47f870e4, type: 3}
+    - {fileID: 8300000, guid: 4e429c87bbd1ec04dba8f89f796c18b8, type: 3}
+    - {fileID: 8300000, guid: 70d3e5ab23ccd4a84a7601f0feda02a8, type: 3}
+    - {fileID: 8300000, guid: 9af0dd1ccf765152dbb06b9a1f486762, type: 3}
