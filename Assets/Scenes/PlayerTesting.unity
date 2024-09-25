@@ -285,6 +285,63 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
   m_PrefabInstance: {fileID: 8920774389700855333}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &70188175
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2330425529264143611, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_Name
+      value: AudioController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634522701156828759, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0865d0d14918b0bd89e0bce3284ae1d, type: 3}
 --- !u!114 &190824084 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8983817411504968037, guid: bb3a3ec8a269a1343b3d1eb3b1a997d8, type: 3}
@@ -1196,56 +1253,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191008006}
   m_CullTransparentMesh: 1
---- !u!1 &1377544367
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1377544369}
-  - component: {fileID: 1377544368}
-  m_Layer: 0
-  m_Name: AudioController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1377544368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377544367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da342a0c1409c446a86efdc110c4755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SfxSourcePrefab: {fileID: 7652420780402351917, guid: 141cd0919149319d6a96c5049f7dfc0a, type: 3}
-  categories:
-  - name: ThrowMushroom
-    pitchVariation: 1.25
-    clips:
-    - {fileID: 8300000, guid: 6ae199b4bfce43a6db25f3ce09f20f22, type: 3}
---- !u!4 &1377544369
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377544367}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1395817460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,19 +1784,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.022883296
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.067099564
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.95347065
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.86580086
       objectReference: {fileID: 0}
     - target: {fileID: 7196075159924412107, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1909,4 +1916,4 @@ SceneRoots:
   - {fileID: 907575414}
   - {fileID: 2014135909}
   - {fileID: 851071125}
-  - {fileID: 1377544369}
+  - {fileID: 70188175}
