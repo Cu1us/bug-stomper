@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField]
     public int GameScene;
+
+
+
     public void StartGame()
     {
         SceneManager.LoadScene(GameScene);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
