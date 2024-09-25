@@ -40,7 +40,7 @@ public class SnailEnemy : Enemy
             flipGroundY = transform.position.y;
         }
     }
-    protected override void Move()
+    public override void Move()
     {
         if (!inShell && !flipped) base.Move();
     }
