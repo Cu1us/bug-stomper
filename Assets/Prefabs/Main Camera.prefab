@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6113681355001793649}
   - component: {fileID: 4735415129423065215}
   - component: {fileID: 8388733823971600501}
-  - component: {fileID: 492616172888887920}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -64,10 +63,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.050520837
+    y: 0.34351853
+    width: 0.13020834
+    height: 0.14814815
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -178,24 +177,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensityModifier: 1
   cameraPosition: {x: 0, y: 0, z: 0}
---- !u!95 &492616172888887920
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41500123639144041}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cbfe20bfc4bd73644a6dc9d28649df17, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

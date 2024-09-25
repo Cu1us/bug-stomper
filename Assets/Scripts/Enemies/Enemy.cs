@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour
     public const float hurtBlinkDuration = 0.25f;
     [SerializeField] protected float movementSpeed = 2;
     [SerializeField] protected int health = 2;
-    [SerializeField] protected bool flipped;
+    [SerializeField] public bool flipped { get; protected set; }
     protected float lastFlipTime = 0;
     protected SpriteRenderer sr;
     protected Animator animator;
@@ -63,11 +63,13 @@ public abstract class Enemy : MonoBehaviour
         }
         else
         {
+            AudioController.Play("Kill");
             Kill();
         }
     }
     public virtual void BlinkHurt()
     {
+        AudioController.Play("Hurt");
         sr.color = Color.red;
         CancelInvoke(nameof(UnblinkHurt));
         Invoke(nameof(UnblinkHurt), hurtBlinkDuration);
@@ -78,6 +80,7 @@ public abstract class Enemy : MonoBehaviour
     }
     public virtual void Kill()
     {
+        Score.AddScore(pointsOnKill,transform.position);
         Destroy(gameObject);
     }
     public void OnReachEnd()
