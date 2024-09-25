@@ -6,6 +6,7 @@ public class WormEnemy : Enemy
 {
     public override Projectile.ReturnBehavior HitByProjectile(int damage)
     {
+        Damage(damage);
         return Projectile.ReturnBehavior.HIT;
     }
 
