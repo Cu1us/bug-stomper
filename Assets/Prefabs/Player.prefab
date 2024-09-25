@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneNumber: 1
-  fireRate: 0.1
+  fireRate: 0.05
   stompRate: 0.1
   tweakYPos: -0.5
   minChargeTime: 0.2
