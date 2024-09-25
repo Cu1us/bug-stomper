@@ -51,3 +51,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 6979f26c144ee54b19c9dbbc35c91611, type: 3}
     - {fileID: 8300000, guid: aa92410e6ab63c0049849fd052aeda20, type: 3}
+  - name: Deflect
+    pitchVariation: 1.05
+    clips:
+    - {fileID: 8300000, guid: d012ca5dc06dd17798402976415bb54d, type: 3}
