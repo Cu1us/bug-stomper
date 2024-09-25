@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         {
             lane.onFinishSpawning += OnLaneFinish;
         }
+        StartGame();
     }
     void OnLaneFinish()
     {
@@ -98,6 +99,19 @@ public class GameManager : MonoBehaviour
         if (!gameActive) return;
         StartWave(currentWave);
         currentWave++;
+    }
+
+    public void SkipTutorial()
+    {
+        foreach (Lane lane in Lanes)
+        {
+            Enemy[] enemies = lane.GetComponentsInChildren<Enemy>();
+            foreach (Enemy enemy in enemies)
+            {
+                Destroy(enemy.gameObject);
+            }
+        }
+        StartNextWave();
     }
     void Update()
     {

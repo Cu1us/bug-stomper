@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public Canvas worldCanvas;
 
     int score = 0;
+    int currentWave;
 
     void Start()
     {
@@ -26,17 +27,20 @@ public class UIManager : MonoBehaviour
 
     public void SetWaveText(int inWave)
     {
-        waveText.text = "Wave " + (inWave);
+        currentWave = inWave;
+        waveText.text = "Wave " + inWave;
     }
 
     public void SetScoreText(int scoreIn, Vector3 posIn)
     {
+        if (currentWave == 0) return;
         score += scoreIn;
-        scoreText.text = ""+score;
+        scoreText.text = ""+score.ToString("00000");
     }
 
     void SpawnPopupText(int scoreIn, Vector3 posIn)
     {
+        if (currentWave == 0) return;
         var popup =  Instantiate(scorePopup, worldCanvas.transform);
         popup.spawnPos = posIn;
         popup.scoreValue = scoreIn;

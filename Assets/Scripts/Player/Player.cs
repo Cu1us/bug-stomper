@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
+        //if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
 
         if (Input.GetButtonDown("Vertical") && stompChargeTimer <= 0) SetLane();
 

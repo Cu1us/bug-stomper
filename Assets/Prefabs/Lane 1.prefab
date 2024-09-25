@@ -48,3 +48,6 @@ MonoBehaviour:
   - timeBetweenActions: 5
     enemyMoveSpeedMultiplier: 1
     Actions: 050000000500000005000000000000000000000000000000000000000100000000000000000000000000000003000000
+  - timeBetweenActions: 5
+    enemyMoveSpeedMultiplier: 1
+    Actions: 0100000004000000
