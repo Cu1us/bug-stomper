@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     Animator animator;
 
     public UnityEvent<float> onStomp;
+    public UnityEvent onSmallStomp;
+    public UnityEvent onBigStomp;
+    public UnityEvent onStompChargeStart;
+    public UnityEvent onStompChargeEnd;
 
     //local vars
     float fireTimer;
@@ -74,6 +78,7 @@ public class Player : MonoBehaviour
             stompChargeTimer = 0;
             animator.SetBool("charge", true);
             animator.SetBool("stomp", false);
+            onStompChargeStart?.Invoke();
         }
 
         if (Input.GetButton("Jump"))
@@ -83,6 +88,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonUp("Jump"))
         {
+            onStompChargeEnd?.Invoke();
             if (stompChargeTimer < minChargeTime)
             {
                 stompChargeTimer = 0;
@@ -92,15 +98,16 @@ public class Player : MonoBehaviour
                 animator.Play("GnomeIdle");
                 return;
             }
-            onStomp?.Invoke(Mathf.Min(stompChargeTimer, maxChargeTime));
 
             CameraShake.Play(Mathf.Clamp(stompChargeTimer / 2, 0.15f, 1.25f));
             animator.SetBool("stomp", true);
             animator.SetBool("charge", false);
             StartStomp(laneNumber);
 
+            onStomp?.Invoke(Mathf.Min(stompChargeTimer, maxChargeTime));
             if (stompChargeTimer >= maxChargeTime)
             {
+                onBigStomp?.Invoke();
                 AudioController.Play("BigStomp");
                 if (laneNumber == 1)
                 {
@@ -122,6 +129,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                onSmallStomp?.Invoke();
                 AudioController.Play("SmallStomp");
             }
             stompChargeTimer = 0;
