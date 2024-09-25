@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] float fireRate = .5f;
     [SerializeField] float stompRate = 5f;
     [SerializeField] float tweakYPos = -0.3f;
+    [SerializeField] float minChargeTime = .15f;
+    [SerializeField] float maxChargeTime = .5f;
 
     [Header("References")]
     [SerializeField] Transform throwTransform;
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
     //local vars
     float fireTimer;
     float stompTimer;
-    float stompChargeTime;
+    float stompChargeTimer;
 
     void Start()
     {
@@ -40,16 +42,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        stompTimer -= Time.deltaTime;
-        fireTimer -= Time.deltaTime;
 
         if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
 
-        if (Input.GetButtonDown("Vertical") && stompChargeTime <= 0) SetLane();
+        if (Input.GetButtonDown("Vertical") && stompChargeTimer <= 0) SetLane();
 
         Stomp();
 
-        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompChargeTime <= 0)
+        fireTimer -= Time.deltaTime;
+
+        if (Input.GetButtonDown("Fire1") && fireTimer <= 0  && stompChargeTimer <= 0)
         {
             fireTimer = fireRate;
             Vector3 spawnPos = throwTransform.position;
@@ -60,29 +62,41 @@ public class Player : MonoBehaviour
 
     void Stomp()
     {
-        if (Input.GetButtonDown("Jump") && stompTimer <= 0)
+        stompTimer -= Time.deltaTime;
+
+        if (stompTimer > 0 && stompChargeTimer <= 0) return;
+
+        if (Input.GetButtonDown("Jump") )
         {
-            animator.Play("GnomeCharge");
+            stompChargeTimer = 0;
+            animator.SetBool("charge", true);
+            animator.SetBool("stomp", false);
         }
 
         if (Input.GetButton("Jump"))
         {
-            stompChargeTime += Time.deltaTime;
+            stompChargeTimer += Time.deltaTime;
         }
 
         if (Input.GetButtonUp("Jump"))
         {
-            if (stompChargeTime < 0.1f)
+            if (stompChargeTimer < minChargeTime)
             {
-                stompChargeTime = 0;
+                stompChargeTimer = 0;
+                stompTimer = stompRate;
+                animator.SetBool("charge",false);
+                animator.SetBool("stomp",false);
                 animator.Play("GnomeIdle");
                 return;
             }
-            CameraShake.Play(Mathf.Min(stompChargeTime / 2, 1.5f));
-            animator.Play("GnomeStomp");
+
+            CameraShake.Play(Mathf.Clamp(stompChargeTimer / 2, 0.15f, 1.25f));
+            animator.SetBool("stomp",true);
+            animator.SetBool("charge",false);
             stompTimer = stompRate;
             StartStomp(laneNumber);
-            if (stompChargeTime >= 1.0f)
+            
+            if (stompChargeTimer >= maxChargeTime)
             {
                 if (laneNumber == 1)
                 {
@@ -102,7 +116,7 @@ public class Player : MonoBehaviour
                     }
                 }
             }
-            stompChargeTime = 0;
+            stompChargeTimer = 0;
         }
     }
 
@@ -111,7 +125,7 @@ public class Player : MonoBehaviour
         Vector3 spawnPos = stompTransform.position;
         spawnPos.y = gameManager.Lanes[laneIn].gameObject.transform.position.y + tweakYPos;
         Instantiate(stompWave, spawnPos, Quaternion.identity);
-        animator.Play("GnomeStomp");
+        //animator.Play("GnomeStomp");
     }
 
     private void SetLane()

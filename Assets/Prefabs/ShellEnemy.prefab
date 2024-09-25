@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3531216492679081885}
   - component: {fileID: 988158331710166299}
   - component: {fileID: 5734865572899229518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShellEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  health: 1
+  health: 2
   flipped: 0
   parentLane: {fileID: 0}
   flipAnimationTime: 0.5
