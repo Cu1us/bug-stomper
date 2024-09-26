@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f624fd7007295ae4da6aa80ce5ce50ba
+guid: 093ea39ee13255fa797b9bd79aecabf6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,123 +93,131 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snail death animation 1_0
+      name: Snail death animation 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 17
+        y: 66
         width: 48
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 071aa9239fff54ea3a6a46454a09bb79
-      internalID: -2006721478
+      spriteID: 66827d422932710efa45c6783da2df0a
+      internalID: 1592954004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail death animation 1_1
+      name: Snail death animation 2_1
       rect:
         serializedVersion: 2
         x: 49
-        y: 17
+        y: 66
         width: 48
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2023dc075d1b6f1f6b244d088bcd1abc
-      internalID: -1711569143
+      spriteID: 2b2b4fd3d2d06a46ab0ee818ae9ec68c
+      internalID: 1670056871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail death animation 1_2
+      name: Snail death animation 2_2
       rect:
         serializedVersion: 2
         x: 98
-        y: 17
+        y: 66
         width: 48
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceab5e2dc71c9d693a0ea34b0ceabb17
-      internalID: -174760825
+      spriteID: 4cbce05fef87a59c085fc2b6e92a4b01
+      internalID: 1499244932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail death animation 1_3
+      name: Snail death animation 2_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 33
         width: 48
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c8467e825aacf6d69572a5bc4003c91
-      internalID: 613477901
+      spriteID: 7ab17639dbc10e984ba7e6585d89b703
+      internalID: -1294461913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail death animation 1_4
+      name: Snail death animation 2_4
       rect:
         serializedVersion: 2
         x: 49
-        y: 0
+        y: 33
         width: 48
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f37fc52423e2561dba2af0be8d9a31b
-      internalID: -357307534
+      spriteID: b9aa86a42c0857ebea351612a4b89bb2
+      internalID: -1510995935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snail death animation 2_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 33
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0ca8427172be6378efc3d1175c83af
+      internalID: -479915647
       vertices: []
       indices: 
       edges: []
@@ -225,11 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Snail death animation 1_0: -2006721478
-      Snail death animation 1_1: -1711569143
-      Snail death animation 1_2: -174760825
-      Snail death animation 1_3: 613477901
-      Snail death animation 1_4: -357307534
+      Snail death animation 2_0: 1592954004
+      Snail death animation 2_1: 1670056871
+      Snail death animation 2_2: 1499244932
+      Snail death animation 2_3: -1294461913
+      Snail death animation 2_4: -1510995935
+      Snail death animation 2_5: -479915647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

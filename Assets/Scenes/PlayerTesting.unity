@@ -445,6 +445,7 @@ MonoBehaviour:
   PrefabCaterpillar: {fileID: -7585272794780200424, guid: 8784e8df3d770eded97f6ee7aaa2adbc, type: 3}
   PrefabSnail: {fileID: 4175596269475915636, guid: 69eee4aa5abd9f710a5691510785dd13, type: 3}
   PrefabWorm: {fileID: 2812471480785628429, guid: ae1ec7ab6f63ae2458ba5e244bd8d2f7, type: 3}
+  PrefabDeathSprite: {fileID: 1271071233437637745, guid: c9e6aa60d73c23c89aaf5cd77bfdf9c1, type: 3}
   onWaveStart:
     m_PersistentCalls:
       m_Calls:

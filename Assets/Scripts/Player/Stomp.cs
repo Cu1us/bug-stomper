@@ -16,7 +16,7 @@ public class Stomp : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(velocity*Time.deltaTime,0);
-        if (transform.position.x >= 6) collider2d.enabled = false;
+        if (transform.position.x >= 6.35) collider2d.enabled = false;
 
         if (transform.position.x >= 10) Destroy(gameObject);
 

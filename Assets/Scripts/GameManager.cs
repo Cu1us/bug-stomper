@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public SnailEnemy PrefabSnail;
     public WormEnemy PrefabWorm;
 
+    [Header("Misc. prefabs")]
+    public DeathSprite PrefabDeathSprite;
+
 
 
     [Header("Events")]
