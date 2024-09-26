@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class DeathSprite : MonoBehaviour
 {
-    public static void SpawnDeathSprite(Vector3 position, EnemyType type)
+    public static DeathSprite SpawnDeathSprite(Vector3 position, EnemyType type)
     {
         DeathSprite sprite = Instantiate(GameManager.instance.PrefabDeathSprite, position, Quaternion.identity);
         sprite.Play(type);
+        return sprite;
     }
 
     void Play(EnemyType type)
