@@ -63,5 +63,13 @@ public class CaterpillarEnemy : MonoBehaviour
             }
             transform.position += Vector3.left * moveDistance;
         }
+        if (transform.position.x < GameManager.instance.LaneEndTransform.position.x) // If at the end of the lane
+        {
+            OnReachEnd();
+        }
+    }
+    public void OnReachEnd()
+    {
+        GameManager.instance.OnEnemyReachEnd(Segments[0]);
     }
 }
