@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneNumber: 1
-  fireRate: 0.05
+  fireRate: 0.15
   stompRate: 0.1
   tweakYPos: -0.5
   minChargeTime: 0.15
@@ -59,6 +59,21 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   projectile: {fileID: 5712345382162022589, guid: 794717a72711b1b43865fcfd12e495cd, type: 3}
   stompWave: {fileID: 161228094625569937, guid: 78d80bfaa642d024ba8660a9e5f08f49, type: 3}
+  onStomp:
+    m_PersistentCalls:
+      m_Calls: []
+  onSmallStomp:
+    m_PersistentCalls:
+      m_Calls: []
+  onBigStomp:
+    m_PersistentCalls:
+      m_Calls: []
+  onStompChargeStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onStompChargeEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &21825265119155642
 SpriteRenderer:
   m_ObjectHideFlags: 0

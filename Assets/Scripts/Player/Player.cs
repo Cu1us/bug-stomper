@@ -44,21 +44,20 @@ public class Player : MonoBehaviour
         SetLane();
     }
 
-    // TODO
-    // Add states to prevent movement and actions when in other states than idle.
-
     void Update()
     {
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire2")) gameManager.StartGame();
+        Stomp();
 
         if (Input.GetButtonDown("Vertical") && stompChargeTimer <= 0) SetLane();
 
-        Stomp();
+        Fire();
+    }
 
-
+    private void Fire()
+    {
         if (Input.GetButtonDown("Fire1") && fireTimer <= 0 && stompTimer <= 0 && stompChargeTimer <= 0)
         {
             fireTimer = fireRate;

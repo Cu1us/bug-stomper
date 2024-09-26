@@ -70,13 +70,15 @@ public abstract class Enemy : MonoBehaviour
     public virtual void BlinkHurt()
     {
         AudioController.Play("Hurt");
-        sr.color = Color.red;
+        //sr.color = Color.red;
+        sr.material.SetInt("_Blink", 1);
         CancelInvoke(nameof(UnblinkHurt));
         Invoke(nameof(UnblinkHurt), hurtBlinkDuration);
     }
     public virtual void UnblinkHurt()
     {
-        sr.color = Color.white;
+        //sr.color = Color.white;
+        sr.material.SetInt("_Blink", 0);
     }
     public virtual void Kill()
     {

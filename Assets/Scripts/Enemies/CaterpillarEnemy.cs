@@ -24,9 +24,9 @@ public class CaterpillarEnemy : MonoBehaviour
             segment.parentLane = parentLane;
             segment.onDeath += OnSegmentDeath;
             segment.SetFlipped(flip);
+            segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
             if (Random.Range(0, 3) != 0) // 2/3 chance
                 flip = !flip;
-            segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
             Segments.Add(segment);
         }
     }
@@ -40,6 +40,13 @@ public class CaterpillarEnemy : MonoBehaviour
         if (Segments.Count == 1)
         {
             Segments[0].pointsOnKill = pointsOnKill;
+        }
+        transform.position += Vector3.right * distanceBetweenSegments;
+        int i = 0;
+        foreach (CaterpillarSegment segment1 in Segments)
+        {
+            segment1.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
+            i++;
         }
     }
     bool IsAnySegmentWalking()
@@ -63,5 +70,13 @@ public class CaterpillarEnemy : MonoBehaviour
             }
             transform.position += Vector3.left * moveDistance;
         }
+        if (transform.position.x < GameManager.instance.LaneEndTransform.position.x) // If at the end of the lane
+        {
+            OnReachEnd();
+        }
+    }
+    public void OnReachEnd()
+    {
+        GameManager.instance.OnEnemyReachEnd(Segments[0]);
     }
 }
