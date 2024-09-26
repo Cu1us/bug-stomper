@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public ScorePopup scorePopup;
     public Canvas worldCanvas;
     public GameObject tutorial;
+    public Image waveNrImg1;
+    public Image waveNrImg2;
+    public Sprite[] sprites;
 
     int score = 0;
     int currentWave;
@@ -31,6 +34,17 @@ public class UIManager : MonoBehaviour
     {
         currentWave = inWave;
         waveText.text = "Wave " + inWave;
+        if (currentWave >= 10)
+        {
+            waveNrImg1.gameObject.SetActive(true);
+            waveNrImg1.sprite = sprites[1];
+            waveNrImg2.sprite = sprites[currentWave-10];
+
+        }
+        else
+        {
+            waveNrImg2.sprite = sprites[currentWave];
+        }
     }
 
     public void SetScoreText(int scoreIn, Vector3 posIn)
