@@ -59,6 +59,7 @@ public class SnailEnemy : Enemy
             {
                 flipped = false;
                 DeathSprite.SpawnDeathSprite(transform.position, DeathSprite.EnemyType.SNAIL);
+                AudioController.Play("Kill");
                 base.Kill();
             }
         }
