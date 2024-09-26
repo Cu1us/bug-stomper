@@ -47,4 +47,9 @@ public class WormEnemy : Enemy
     {
         if (!flipped && (Time.time - lastFlipTime) > flipAnimationTime / 2) base.Move();
     }
+    public override void Flip()
+    {
+        animator.Play("Flip");
+        base.Flip();
+    }
 }

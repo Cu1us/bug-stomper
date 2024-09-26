@@ -58,6 +58,7 @@ public class SnailEnemy : Enemy
             if (flipProgress >= 1)
             {
                 flipped = false;
+                DeathSprite.SpawnDeathSprite(transform.position, DeathSprite.EnemyType.SNAIL);
                 base.Kill();
             }
         }
