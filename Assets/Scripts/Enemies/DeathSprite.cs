@@ -20,6 +20,7 @@ public class DeathSprite : MonoBehaviour
             EnemyType.SHELLMET => "Shellmet",
             EnemyType.SNAIL => "Snail",
             EnemyType.CATERPILLAR => "Caterpillar",
+            EnemyType.MUSHROOM => "Mushroom",
             _ => "Undefined"
         };
         GetComponent<Animator>().Play(animation);
@@ -34,6 +35,7 @@ public class DeathSprite : MonoBehaviour
         WORM,
         SHELLMET,
         SNAIL,
-        CATERPILLAR
+        CATERPILLAR,
+        MUSHROOM
     }
 }
