@@ -949,6 +949,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1010557564272303872, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322055826223750992, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407865575437857918, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2289411761231520621, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1032,6 +1044,10 @@ PrefabInstance:
     - target: {fileID: 3763677693787152247, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012992661608609238, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -46.00006
       objectReference: {fileID: 0}
     - target: {fileID: 5036370123120761577, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
       propertyPath: m_Camera
@@ -1320,19 +1336,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.13222331
+      value: 0.05736544
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.05214153
+      value: 0.067099564
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7345739
+      value: 0.8852691
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.89385474
+      value: 0.86580086
       objectReference: {fileID: 0}
     - target: {fileID: 7196075159924412107, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_LocalPosition.x
