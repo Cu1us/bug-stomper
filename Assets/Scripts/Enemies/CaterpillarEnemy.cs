@@ -26,7 +26,6 @@ public class CaterpillarEnemy : MonoBehaviour
             segment.SetFlipped(flip);
             if (Random.Range(0, 3) != 0) // 2/3 chance
                 flip = !flip;
-            segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
             Segments.Add(segment);
         }
     }
@@ -40,6 +39,13 @@ public class CaterpillarEnemy : MonoBehaviour
         if (Segments.Count == 1)
         {
             Segments[0].pointsOnKill = pointsOnKill;
+        }
+        transform.position += Vector3.right * distanceBetweenSegments;
+        int i = 0;
+        foreach (CaterpillarSegment segment1 in Segments)
+        {
+            segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
+            i++;
         }
     }
     bool IsAnySegmentWalking()
