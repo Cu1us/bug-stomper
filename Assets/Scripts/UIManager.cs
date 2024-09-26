@@ -11,9 +11,13 @@ public class UIManager : MonoBehaviour
     [Header("UI and Menus")]
     public Text waveText;
     public Text scoreText;
+    public Text scoreTextShadow;
     public ScorePopup scorePopup;
     public Canvas worldCanvas;
     public GameObject tutorial;
+    public Image waveNrImg1;
+    public Image waveNrImg2;
+    public Sprite[] sprites;
 
     int score = 0;
     int currentWave;
@@ -31,6 +35,17 @@ public class UIManager : MonoBehaviour
     {
         currentWave = inWave;
         waveText.text = "Wave " + inWave;
+        if (currentWave >= 10)
+        {
+            waveNrImg1.gameObject.SetActive(true);
+            waveNrImg1.sprite = sprites[1];
+            waveNrImg2.sprite = sprites[currentWave-10];
+
+        }
+        else
+        {
+            waveNrImg2.sprite = sprites[currentWave];
+        }
     }
 
     public void SetScoreText(int scoreIn, Vector3 posIn)
@@ -38,6 +53,7 @@ public class UIManager : MonoBehaviour
         if (currentWave == 0) return;
         score += scoreIn;
         scoreText.text = ""+score.ToString("00000");
+        scoreTextShadow.text = ""+score.ToString("00000");
     }
 
     void SpawnPopupText(int scoreIn, Vector3 posIn)
