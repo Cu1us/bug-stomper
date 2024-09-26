@@ -874,26 +874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
-    - target: {fileID: 2175429596770114584, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -13.799805
-      objectReference: {fileID: 0}
-    - target: {fileID: 2175961238521818412, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 41.30957
-      objectReference: {fileID: 0}
-    - target: {fileID: 2175961238521818412, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -8.400391
-      objectReference: {fileID: 0}
     - target: {fileID: 2289411761231520621, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 37942770}
-    - target: {fileID: 2473025386116923554, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -10.035156
-      objectReference: {fileID: 0}
     - target: {fileID: 3763677693787152247, guid: 9e0e54f0f58512a43aa72d50f1d4a037, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -995,10 +979,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 279859181292748192, guid: f144d3b86054eee439233cb6dab9af36, type: 3}
-      propertyPath: flickerIntensity
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 3790440008318850514, guid: f144d3b86054eee439233cb6dab9af36, type: 3}
       propertyPath: m_Name
       value: Lights
@@ -1242,26 +1222,6 @@ PrefabInstance:
     - target: {fileID: 41500123639144041, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113681355001793649, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7196075159924412107, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_LocalPosition.x

@@ -63,10 +63,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.022883296
-    y: 0.067099564
-    width: 0.95347065
-    height: 0.86580086
+    x: 0.05339436
+    y: 0.0867679
+    width: 0.38138828
+    height: 0.3470716
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -118,7 +118,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
