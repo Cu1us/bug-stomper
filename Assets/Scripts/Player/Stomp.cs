@@ -5,16 +5,20 @@ using UnityEngine;
 public class Stomp : MonoBehaviour
 {
     [SerializeField] float velocity = 0.5f;
+    BoxCollider2D collider2d;
+    
 
     void Start()
     {
+        collider2d = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
         transform.position += new Vector3(velocity*Time.deltaTime,0);
+        if (transform.position.x >= 6) collider2d.enabled = false;
 
-        if (transform.position.x >= 15) Destroy(gameObject);
+        if (transform.position.x >= 10) Destroy(gameObject);
 
     }
 
