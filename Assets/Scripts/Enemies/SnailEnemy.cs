@@ -11,6 +11,10 @@ public class SnailEnemy : Enemy
     AnimationCurve flipAnimationCurve;
     [SerializeField]
     float flipJumpHeight;
+    [SerializeField]
+    float timeToRespawnFromShell = 5f;
+
+    float enterShellTime = 0;
 
     float flipGroundY;
     bool inShell = false;
@@ -24,6 +28,7 @@ public class SnailEnemy : Enemy
             {
                 health = 0;
                 inShell = true;
+                enterShellTime = Time.time;
                 GetComponent<Animator>().Play("EnterShell");
             }
             return Projectile.ReturnBehavior.HIT;
@@ -67,9 +72,22 @@ public class SnailEnemy : Enemy
                 base.Kill();
             }
         }
+        else if (!flipped && inShell)
+        {
+            if (Time.time - enterShellTime > timeToRespawnFromShell)
+            {
+                animator.Play("ExitShell");
+                inShell = false;
+                health = 3;
+            }
+        }
     }
 
     public void OnHurtFinish()
+    {
+        if (!inShell && !flipped) animator.Play("Walk");
+    }
+    public void OnExitShellFinish()
     {
         if (!inShell && !flipped) animator.Play("Walk");
     }

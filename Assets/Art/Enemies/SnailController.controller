@@ -26,6 +26,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-6600220085906080778
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ExitShell
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 5d018481b3473d914b4ce1a3838271b8, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1107 &-5080275502761070823
 AnimatorStateMachine:
   serializedVersion: 6
@@ -42,8 +68,11 @@ AnimatorStateMachine:
     m_State: {fileID: -7052419971723080881}
     m_Position: {x: 112, y: 245, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8968748781317136571}
-    m_Position: {x: 397.6726, y: 298.55136, z: 0}
+    m_State: {fileID: 5260364631590732892}
+    m_Position: {x: 411.39648, y: 353.447, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -6600220085906080778}
+    m_Position: {x: 133.86841, y: 385.4695, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -102,7 +131,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &8968748781317136571
+--- !u!1102 &5260364631590732892
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -122,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 55fb7e9bc737bcd45906dede73e1de15, type: 2}
+  m_Motion: {fileID: 7400000, guid: aea978b16f9c6054e9ca3df90e2a77e2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
