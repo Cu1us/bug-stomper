@@ -440,7 +440,7 @@ MonoBehaviour:
   - {fileID: 503489882}
   - {fileID: 2004048937}
   - {fileID: 190824084}
-  TimeBetweenWaves: 12
+  TimeBetweenWaves: 10
   PrefabShellEnemy: {fileID: 2043675940366498402, guid: 4d036eca7727c0240a4377f2348a331a, type: 3}
   PrefabCaterpillar: {fileID: -7585272794780200424, guid: 8784e8df3d770eded97f6ee7aaa2adbc, type: 3}
   PrefabSnail: {fileID: 4175596269475915636, guid: 69eee4aa5abd9f710a5691510785dd13, type: 3}
@@ -1320,19 +1320,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.13222331
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.05214153
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.7345739
       objectReference: {fileID: 0}
     - target: {fileID: 6865671893329153953, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.89385474
       objectReference: {fileID: 0}
     - target: {fileID: 7196075159924412107, guid: f7ee85ce940f4cc4b96d9689d5bf5c59, type: 3}
       propertyPath: m_LocalPosition.x
