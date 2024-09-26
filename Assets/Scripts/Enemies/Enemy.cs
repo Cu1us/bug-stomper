@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
-    public const float hurtBlinkDuration = 0.15f;
+    public const float hurtBlinkDuration = 0.125f;
     [SerializeField] protected float movementSpeed = 2;
     [SerializeField] protected int health = 2;
     [SerializeField] public bool flipped { get; protected set; }
