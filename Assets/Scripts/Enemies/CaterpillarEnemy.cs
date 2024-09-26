@@ -24,6 +24,7 @@ public class CaterpillarEnemy : MonoBehaviour
             segment.parentLane = parentLane;
             segment.onDeath += OnSegmentDeath;
             segment.SetFlipped(flip);
+            segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
             if (Random.Range(0, 3) != 0) // 2/3 chance
                 flip = !flip;
             Segments.Add(segment);
@@ -44,7 +45,7 @@ public class CaterpillarEnemy : MonoBehaviour
         int i = 0;
         foreach (CaterpillarSegment segment1 in Segments)
         {
-            segment.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
+            segment1.transform.localPosition = Vector3.right * i * distanceBetweenSegments;
             i++;
         }
     }
