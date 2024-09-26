@@ -54,9 +54,9 @@ public class CaterpillarSegment : Enemy
     }
     public override void Kill()
     {
-        onDeath?.Invoke(this);
         DeathSprite sprite = DeathSprite.SpawnDeathSprite(transform.position + Vector3.left, DeathSprite.EnemyType.CATERPILLAR);
         sprite.transform.parent = transform.parent;
+        onDeath?.Invoke(this);
         base.Kill();
     }
     public override void Move()
