@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Numerics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] Projectile projectile;
     [SerializeField] Stomp stompWave;
+    [SerializeField] GameObject pauseMenu;
     Animator animator;
 
     public UnityEvent<float> onStomp;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     public UnityEvent onReachSmallStompCharge;
     public UnityEvent onReachBigStompCharge;
     bool PlayerWonOrLost = false;
+    public bool paused;
 
     //local vars
     float fireTimer;
@@ -50,6 +53,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (PlayerWonOrLost) return;
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            Pause();
+        }
 
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
@@ -163,5 +171,19 @@ public class Player : MonoBehaviour
     public void LostOrWon(bool inState)
     {
         PlayerWonOrLost = inState;
+    }
+
+    public void Pause()
+    {
+        paused = !paused;
+        if (paused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        pauseMenu.SetActive(paused);
     }
 }
