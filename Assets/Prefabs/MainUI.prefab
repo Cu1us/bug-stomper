@@ -1502,7 +1502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: welcome to bug stomper
+  m_Text: welcome to bug stomper!
 --- !u!114 &5788826305383375198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,14 +1516,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTexts:
-  - Fire with left click!
-  - Charge stomp with space.
-  - Stomp will flip bugs on their head.
-  - Most bugs will need to be flipped at some point.
-  - A long charge will affect multiple lanes!
+  - Throw mushrooms with left click!
+  - Move up and down between lanes.
+  - Charge your stomp with the space key.
+  - The stomp shockwave will flip bugs on their heads.
+  - Most bugs will need to be flipped at some point!
+  - Charge for a longer time to affect multiple lanes.
+  - Good Luck!
   timings:
-  - 5
-  - 10
+  - 3.5
+  - 7
+  - 8
+  - 9
   - 10
   - 10
   - 10
