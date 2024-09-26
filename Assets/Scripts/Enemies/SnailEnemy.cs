@@ -34,6 +34,10 @@ public class SnailEnemy : Enemy
 
     public override void HitByShockwave()
     {
+        if (!inShell && !flipped)
+        {
+            animator.Play("Shockwave");
+        }
         if (inShell && !flipped)
         {
             Flip();
@@ -63,5 +67,10 @@ public class SnailEnemy : Enemy
                 base.Kill();
             }
         }
+    }
+
+    public void OnHurtFinish()
+    {
+        if (!inShell && !flipped) animator.Play("Walk");
     }
 }

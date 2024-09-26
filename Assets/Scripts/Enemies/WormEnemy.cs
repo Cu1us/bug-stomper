@@ -33,4 +33,11 @@ public class WormEnemy : Enemy
         flipped = false;
         animator.Play("Walk");
     }
+
+    public override void Kill()
+    {
+        BlinkHurt();
+        DeathSprite.SpawnDeathSprite(transform.position, DeathSprite.EnemyType.WORM);
+        base.Kill();
+    }
 }
