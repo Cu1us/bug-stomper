@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public UnityEvent onBigStomp;
     public UnityEvent onStompChargeStart;
     public UnityEvent onStompChargeEnd;
+    public UnityEvent onReachSmallStompCharge;
+    public UnityEvent onReachBigStompCharge;
 
     //local vars
     float fireTimer;
@@ -83,6 +85,10 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
             stompChargeTimer += Time.deltaTime;
+            if (stompChargeTimer < minChargeTime && stompChargeTimer + Time.deltaTime >= minChargeTime)
+                onReachSmallStompCharge?.Invoke();
+            if (stompChargeTimer < maxChargeTime && stompChargeTimer + Time.deltaTime >= maxChargeTime)
+                onReachBigStompCharge?.Invoke();
         }
 
         if (Input.GetButtonUp("Jump"))
