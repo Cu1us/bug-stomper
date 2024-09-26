@@ -40,4 +40,9 @@ public class ShellEnemy : Enemy
             transform.eulerAngles = new Vector3(0, 0, 180 - 180 * flipProgress);
         }
     }
+    public override void Kill()
+    {
+        DeathSprite.SpawnDeathSprite(transform.position, DeathSprite.EnemyType.SHELLMET);
+        base.Kill();
+    }
 }
