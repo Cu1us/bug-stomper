@@ -53,7 +53,7 @@ public class CaterpillarEnemy : MonoBehaviour
     {
         foreach (CaterpillarSegment segment in Segments)
         {
-            if (!segment.flipped)
+            if (!segment.flipped || (segment.TryGetComponent(out SpriteRenderer sr) && !sr.isVisible))
                 return true;
         }
         return false;
