@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("UI and Menus")]
     public Text waveText;
     public Text scoreText;
+    public Text scoreTextShadow;
     public ScorePopup scorePopup;
     public Canvas worldCanvas;
     public GameObject tutorial;
@@ -52,6 +53,7 @@ public class UIManager : MonoBehaviour
         if (currentWave == 0) return;
         score += scoreIn;
         scoreText.text = ""+score.ToString("00000");
+        scoreTextShadow.text = ""+score.ToString("00000");
     }
 
     void SpawnPopupText(int scoreIn, Vector3 posIn)
