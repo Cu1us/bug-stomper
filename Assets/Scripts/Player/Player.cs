@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public UnityEvent onStompChargeEnd;
     public UnityEvent onReachSmallStompCharge;
     public UnityEvent onReachBigStompCharge;
+    bool PlayerWonOrLost = false;
 
     //local vars
     float fireTimer;
@@ -48,6 +49,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (PlayerWonOrLost) return;
+
         stompTimer -= Time.deltaTime;
         fireTimer -= Time.deltaTime;
 
@@ -72,6 +75,7 @@ public class Player : MonoBehaviour
 
     void Stomp()
     {
+        
         if (stompTimer > 0 && stompChargeTimer <= 0) return;
 
         if (Input.GetButtonDown("Jump"))
@@ -154,5 +158,10 @@ public class Player : MonoBehaviour
         laneNumber = Mathf.Clamp(laneNumber + (int)Input.GetAxisRaw("Vertical"), 0, 2);
         float y = gameManager.Lanes[laneNumber].gameObject.transform.position.y;
         transform.position = new Vector3(transform.position.x, y + tweakYPos);
+    }
+    
+    public void LostOrWon(bool inState)
+    {
+        PlayerWonOrLost = inState;
     }
 }
