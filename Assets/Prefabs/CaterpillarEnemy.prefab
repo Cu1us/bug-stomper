@@ -47,4 +47,5 @@ MonoBehaviour:
   SegmentPrefab: {fileID: 3857806248156684004, guid: f67e600f73ac096c88b2db205baf69a0, type: 3}
   distanceBetweenSegments: 1
   movementSpeed: 0.5
+  pointsOnKill: 50
   parentLane: {fileID: 0}

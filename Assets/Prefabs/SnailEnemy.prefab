@@ -103,7 +103,7 @@ MonoBehaviour:
   movementSpeed: 0.5
   health: 4
   parentLane: {fileID: 0}
-  pointsOnKill: 50
+  pointsOnKill: 25
   flipAnimationTime: 0.8
   flipAnimationCurve:
     serializedVersion: 2

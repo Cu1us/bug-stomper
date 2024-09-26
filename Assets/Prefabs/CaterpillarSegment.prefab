@@ -196,4 +196,4 @@ MonoBehaviour:
   movementSpeed: 1.5
   health: 2
   parentLane: {fileID: 0}
-  pointsOnKill: 20
+  pointsOnKill: 10
