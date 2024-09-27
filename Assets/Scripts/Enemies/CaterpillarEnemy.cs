@@ -63,7 +63,7 @@ public class CaterpillarEnemy : MonoBehaviour
         if (IsAnySegmentWalking())
         {
             // Move parent
-            float moveDistance = movementSpeed * Time.fixedDeltaTime;
+            float moveDistance = movementSpeed * Time.deltaTime;
             if (parentLane && parentLane.currentWave != null)
             {
                 moveDistance *= parentLane.currentWave.enemyMoveSpeedMultiplier;
